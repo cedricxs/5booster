@@ -11,7 +11,7 @@
 
 * Dossier models: c'est les fichers des models des donnees qui seront conserves dans DB
 
-* Dossier db: conserver les donnees de DB
+* Dossier config: conserver les donnees de config
 
 * Dossier Phpmailer: les fichiers pour envoyer e-mail, peut-etre utilise
 
