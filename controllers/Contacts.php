@@ -1,13 +1,13 @@
 <?php
-    $nom = $_POST['Nom'];
-    $message = $_POST['Message'];
-    $email = $_POST['Email'];
-    if(true)
-    {
-        $servername = "185.98.131.92";
-        $username = "5boos1240679";
-        $password = "260074";
-        $dbname = "5boos1240679";
+    include_once '/htdocs/sitepro/db/config.php';
+    $nom = $_POST['nom'];
+    $message = $_POST['message'];
+    $email = $_POST['email'];
+    if(isset($nom)&&isset($message)&&isset($email)){
+        $servername = DB::$servername;
+        $username = DB::$username;
+        $password = DB::$password;
+        $dbname = DB::$dbname;
          
         // 创建连接
         //$link = mysql_connect($servername, $username, $password);
@@ -33,7 +33,7 @@
     //$_SESSION['contact'] = true;
     //header('Location: /Contacts.php');
      //include_once '../Contacts.php';
-     setcookie ( "contact", "hascontacted", time () + 60*50 ,'/');
+     setcookie ( "contact", "hascontacted", time () + 60*5 ,'/');
     }
     else {
         echo '禁止访问'.'请转到Contact页面'.'</br>';
