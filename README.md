@@ -5,7 +5,7 @@
 
 * Dossier de Controllers: c'est les controllers pour traiter les donnees et connecter avec DB, Back-end
 
-* Dossier public: c'est les fichiers des front-end statiques, concernant css, js, html, images, fonts
+* Dossier public: c'est les fichiers des front-end statiques, concernant css, js, images, fonts
 
 * Dossier views: c'est les fichiers des webpages, .php
 
