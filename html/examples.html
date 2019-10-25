@@ -1,0 +1,290 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <title>Examples of materialize</title>
+    <style>
+        h2 {
+            margin-left: 20px;
+        }
+        .box {
+            height: 200px;
+        }
+        .badge {
+            position : relative;
+            top: 20px;
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <h2 class=""> 1 - Text Exemples</h1>
+        <p class="">Here are a few examples of texts and easy titles, it's for newbie in html/css</p>
+        <p class="">Not really interesting</p>
+        <h3 class="">Less Bigger title than the first one</h2>
+        <h4 class="">Even smaller title</h3>
+        <h5 class="">Smaller again ...</h4>
+        <p class="">Normal paragraph</p>
+        <p class="flow-text">Flow-text paragraph (it should get bigger if bigger screen)</p>
+
+        <h2 class=""> 2 - Hide content with screen size</h1>
+        <p class="">With the different hide class we can hide them if big of small screen, just resize it to check the differences</p>
+        <p class="hide-on-small-only">This text is seen except on small screen</p>
+        <p class="hide-on-med-only">This text is seen except on medium screen</p>
+        <p class="hide-on-large-only">Ths text is seen except on large screen</p>
+        <p class="hide-on-med-and-down">This text is visible only on large screen</p>
+        <p class="hide-on-med-and-up">This text is bisible only on small screen</p>
+
+        <h2 class=""> 3 - Colors content</h1>
+        <p class="">This is very useful and we will see a few example of what is possible to be done with colors</p>
+        <p class="blue">This is blue background</p>
+        <p class="blue darken-4">This is darker blue (4 more) background</p>
+        <p class="blue lighten-4">This is lighter blue (4 less) background</p>
+        <p class="yellow blue-text">This is with blue text</p>
+        <p class="yellow darken-3 red-text ligten-2">This is dark yellow with ligth red text</p>
+
+        <h2 class=""> 4 - Text formatting</h2>
+        <p class="">This is how to manage vertical and horizontal text: </p>
+        <p class="center-align">centered text</p>
+        <p class="left-align">as usual</p>
+        <p class="right-align">right align</p>
+        <div class="container grey lighten-2 box valign-wrapper">
+            <p class="">Horizontal wrapp (in the container class not the text class)</p>
+            <p class="">Notice that many text in one valign-wrapper will make auto columns</p>
+        </div>
+
+        <h2 class=""> 5 - Buttons</h2>
+        <p class="">Buttons</p>
+        <a href="#" class="btn">Normal button</a>
+        <a href="#" class="btn-small">Small button</a>
+        <a href="#" class="btn-large">Large button</a>
+        <a href="#" class="btn indigo">Indigo button</a>
+        <a href="#" class="btn disabled">Disabled button</a>
+        <a href="#" class="btn waves-effect waves-light">Waves button onclick</a>
+        <p class="">Floating button (with pulse because it's stylish)</p>
+        <a href="#" class="btn-floating pulse pink"></a>
+
+        <h2 class=""> 6 - Icons</h2>
+        <p class="">Few examples on how to manage icons, set colors and transform them as button</p>
+        <p class="">Normal icons, with colors for example: </p>
+        <i class="material-icons">error</i>
+        <i class="large material-icons yellow-text darken-3">cloud</i>
+
+        <p class="">Icons on button</p>
+        <a href="#" class="btn indigo waves-effect waves-light">
+            <span>send</span>
+            <i class="material-icons right">send</i>
+        </a>
+        <a href="#" class="btn pink waves-effect waves-light">
+            <span>email</span>
+            <i class="material-icons left">email</i>
+        </a>
+        <a href="#" class="btn-floating pulse blue">
+            <i class="material-icons">add</i>
+        </a>
+        <a href="#" class="btn-floating pulse red">
+            <i class="material-icons">remove</i>
+        </a>
+        <a href="#" class="btn-floating pulse yellow">
+            <i class="material-icons">edit</i>
+        </a>
+
+        <h2 class=""> 7 - Grid</h2>
+        <p class="">Here we will try to see the various grid options of materialize</p>
+        <div class="row">
+            <div class="col s3">content</div>
+            <div class="col s3">content</div>
+            <div class="col s3">content</div>
+            <div class="col s3">content</div>
+        </div>
+        <p class="">Here is responsive example:</p>
+        <p class="">For small screen it will stack the bars</p>
+        <p class="">For medium screen it will stack on two rows</p>
+        <p class="">For large screen it will be 1 row (extra large too)</p>
+        <div class="row">
+            <div class="col s12 m6 l3 center-align">content</div>
+            <div class="col s12 m6 l3 center-align">content</div>
+            <div class="col s12 m6 l3 center-align">content</div>
+            <div class="col s12 m6 l3 center-align">content</div>
+        </div>
+
+        <h2 class=""> 8 - Depth & shadow</h2>
+        <div class="row">
+            <div class="col s2">
+                <div class=""></div>
+            </div>
+            <div class="col s2">
+                <div class="z-depth-1"></div>
+            </div>
+            <div class="col s2">
+                <div class="z-depth-2"></div>
+            </div>
+            <div class="col s2">
+                <div class="z-depth-3"></div>
+            </div>
+            <div class="col s2">
+                <div class="z-depth-4"></div>
+            </div>
+            <div class="col s2">
+                <div class="z-depth-5"></div>
+            </div>
+        </div>
+
+        
+        <h2 class=""> 9 - Navbars</h2>
+
+        <p class="">Here we do a navbar which switch as mobile nivebar when screen is smaller (well it doesn't work haha)</p>
+        
+        <nav class="nav-wrapper indigo">
+
+            <a href="#" class="brand-logo">5booster</a>
+
+            <a href="#" class="sidenav-trigger right" data-target="mobile-links">
+                <i class="material-icons">menu</i>
+            </a>
+
+            <ul class = "right hide-on-med-and-down">
+                <li><a href="#" class="">Home</a></li>
+                <li><a href="#" class="">About</a></li>
+                <li><a href="#" class="">Contact</a></li>
+                <li><a href="#" class="">Login</a></li>
+            </ul>
+
+        </nav>
+
+        <ul class="sidenav" id = "mobile-links">
+            <li><a href="#" class="waves-effect waves-light">Home</a></li>
+            <li><a href="#" class="waves-effect waves-light">About</a></li>
+            <li><a href="#" class="waves-effect waves-light">Contact</a></li>
+            <li><a href="#" class="waves-effect waves-light">Login</a></li>
+        </ul>
+
+        <h2 class=""> 11 - Badges</h2>
+
+        <p class="">Here we want to put text next to an icon/button etc - called badge</p>
+        <nav class="nav-wrapper indigo">
+
+                <a href="#" class="brand-logo">5booster</a>
+    
+                <a href="#" class="sidenav-trigger right" data-target="mobile-links">
+                    <i class="material-icons">menu</i>
+                </a>
+    
+                <ul class = "right hide-on-med-and-down">
+                    <li><a href="#" class="">Home</a></li>
+                    <li><a href="#" class="">About</a></li>
+                    <li><a href="#" class="">Contact</a></li>
+                    <li><a href="#" class="btn-floating z-depth-0 indigo darken-4">
+                        <i class="material-icons white-text">notifications</i>
+                    </a></li>
+                    <li><span class="badge red white-text">5 new</span></li>
+                </ul>
+    
+            </nav>
+    
+            <ul class="sidenav" id = "mobile-links">
+                <li><a href="#" class="waves-effect waves-light">Home</a></li>
+                <li><a href="#" class="waves-effect waves-light">About</a></li>
+                <li><a href="#" class="waves-effect waves-light">Contact</a></li>
+                <li><a href="#" class="waves-effect waves-light">Login</a></li>
+            </ul>
+        
+
+        <h2 class=""> 12 - Cards</h2>
+        <p class="">Here we create some cards layout (which is pretty nice to display the program I think)</p>
+        <div class="row">
+            <div class="col s12 l6">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="img/example.PNG" alt="" class="">
+                        <a href="#" class="halfway-fab btn-floating pink pulse">
+                            <i class="material-icons">favorite</i>
+                        </a>
+                    </div>
+                    <div class="card-title">Title</div>
+                    <div class="card-content">
+                        <p class="">This is the text of a card</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#" class="">More details</a>
+                        <a href="#" class="">Again</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <h2 class=""> 13 - Collections</h2>
+        <p class="">Pretty beautiful way to showcase a table</p>
+        <ul class="collection with-header">
+            <li class="collection-header"><h4>Customers</h4></li>
+            <li class="collection-item avatar">
+                <i class="material-icons circle blue">person</i>
+                <span class="title">Ryu</span>
+                <p class="grey-text">black-belt</p>
+                <a href="" class="secondary-content">
+                <i class="material-icons light-blue-text">email</i>
+                </a>
+            </li>
+            <li class="collection-item avatar">
+                <i class="material-icons circle blue">person</i>
+                <span class="title">Yoshi</span>
+                <p class="grey-text">orange-belt</p>
+                <a href="" class="secondary-content">
+                <i class="material-icons light-blue-text">email</i>
+                </a>
+            </li>
+            <li class="collection-item avatar">
+                <i class="material-icons circle blue">person</i>
+                <span class="title">Crystal</span>
+                <p class="grey-text">brown-belt</p>
+                <a href="" class="secondary-content">
+                <i class="material-icons light-blue-text">email</i>
+                </a>
+            </li>
+        </ul>
+        
+
+        <h2 class=""> 14 - Modals</h2>
+
+        <p class="">Very usefull stuff to do easy modals</p>
+        
+        <a class="btn orange modal-trigger" href="#terms">Terms & Conditions</a>
+    
+        <div id="terms" class="modal">
+            <div class="modal-content">
+                <h4>Terms & Conditions</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae finibus mi, egestas dignissim metus. Fusce tempus elementum metus. Donec eu nibh fringilla, dignissim arcu eu, ultrices ante. Cras consectetur risus id mi condimentum aliquam.</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close btn orange">Agree</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.sidenav').sidenav();
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            $('.modal').modal();
+        });
+    </script> 
+</body>
+</html>
