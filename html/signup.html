@@ -56,15 +56,22 @@
 					</div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s12 m6">
+                    <div class="input-field col s12 m4">
                         <i class="material-icons prefix">date_range</i>
-                        <input id = "age" type="text" class="datepicker validate" name="birthdate">
+                        <input id="age" type="text" class="datepicker validate" name="birthdate">
                         <label for="age">Birthdate</label>
                     </div>
-                    <div class="input-field col s12 m6">
+                    <div class="input-field col s12 m4">
                         <i class="material-icons prefix">location_city</i>
-                        <input type="text" type="text" class="validate" name="city">
+                        <input id="city"type="text" class="validate" name="city">
                         <label for="city">City</label>
+                    </div>
+                    <div class="input-field col s12 m4">
+                        <select name="gender" id="gender">
+                            <option value="null" disabled selected>Gender</option>
+                            <option value="F">Female</option>
+                            <option value="M">Male</option>
+                        </select>
                     </div>
                 </div>
 				<div class="row">
@@ -115,6 +122,11 @@
                 "firstDay": 1
             }
             var instances = M.Datepicker.init(elems, options);
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(elems);
         });
     </script>
     
