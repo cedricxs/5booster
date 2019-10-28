@@ -43,7 +43,9 @@
             include_once 'controllers/signup.php';
             echo "signup success!";
     });
-     
+     $route->addRoute('GET', '/form', function(){
+         include_once 'views/form.html';
+     });
      
      
      
