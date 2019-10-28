@@ -23,23 +23,34 @@
     }
     
     $route = new Route();
-    include_once 'src/SiteInfo.php';
-    $site = SiteInfo::build(['baseUrl'=>"https://5booster.com"]);
+    
     
     $route->addRoute('GET', '/', function(){
-        // echo $GLOBALS['site']->baseUrl;
-         include_once 'Route/main/Acceuil.php';
+         include_once 'views/accueil.html';
     });
     
-  
-    
-     $route->addRoute('GET', '/Contacts', function(){
-         include_once 'Route/main/Contacts.php';
+     $route->addRoute('GET', '/contact', function(){
+         require 'views/contact.html';
      });
 
-     $route->addRoute('GET', '/Se-connecter', function(){
-         include_once 'Route/main/login.html';
+     $route->addRoute('GET', '/signup', function(){
+         include_once 'views/signup.html';
      });
+     $route->addRoute('GET', '/signin', function(){
+         include_once 'views/signin.html';
+     });
+     $route->addRoute('POST','/signup',function(){
+            include_once 'controllers/signup.php';
+            echo "signup success!";
+    });
+     
+     
+     
+     
+     
+     
+     
+  /*  
      $route->addRoute('POST', '/Contacts', function(){
             include_once dirname(__FILE__).'/Route/api/Contacts.php';
             //用header浏览器会显示302
@@ -68,5 +79,6 @@
     $route->addRoute('GET','/Enregister',function(){
             include_once 'Route/main/Enregister.php';
     });
+    */
     
      $route->doRouting();
