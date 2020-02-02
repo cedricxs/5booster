@@ -1,17 +1,22 @@
-RewriteEngine On
-RewriteBase /
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
 
+    RewriteEngine On
+	
 
-#### PERSISTENT CONTENT ####
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
 
-
-#### PERSISTENT CONTENT END ####
-
-RewriteCond %{REQUEST_URI} \/(?:store\.log|store\.dat|store\.json|store_orders\.log|invoice-series\.json|ga_code|data\.json)$ [OR]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^.*$ index.php [L,QSA]
-
-
-#### PERSISTENT CONTENT ####
-
+    # Handle Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+</IfModule>
