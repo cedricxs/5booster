@@ -15,5 +15,5 @@
         ];
         protected $primaryKey = 'user_id';
         //public $timestamps = false;
-        protected $table = 'users';
+        protected $table = 'User';
     }
