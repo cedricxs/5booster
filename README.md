@@ -9,7 +9,7 @@
 
 ## Structure 
 
-Toutes les pages front-end se trouvent a /resources/views, toutes pages front-end sont .php, mais en fait, apres diriger le ficher .html, change le nom directement a .php.
+Toutes les pages front-end se trouvent a /resources/views, toutes pages front-end sont .php, mais en fait, apres rediger le ficher .html, change le nom directement a .php.
 
 ## About Laravel
 
