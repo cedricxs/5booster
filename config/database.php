@@ -46,10 +46,10 @@ return [
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
-            'host' => '185.98.131.92',
+            'host' => $_ENV['isLocal'] ? '127.0.0.1':'185.98.131.92',
             'port' => '3306',
-            'database' => '5boos1240679',
-            'username' => '5boos1240679',
+            'database' => $_ENV['isLocal'] ? '5booster':'5boos1240679',
+            'username' =>  $_ENV['isLocal'] ? 'cedric':'5boos1240679',
             'password' => '260074',
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',

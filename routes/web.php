@@ -11,7 +11,15 @@
 |
 */
 
-Route::middleware('web')->get('/',function(){
-    return view('Accueil');
-});
+use Illuminate\Support\Facades\Auth;
+
+Route::middleware(['web','guest'])->get('/','IndexController@index');
+
+Route::middleware('web')->get('/history','IndexController@history');
+
+Route::middleware(['web','auth'])->get('/client','IndexController@client');
+
+Route::middleware(['web','auth'])->get('client_espace','IndexController@client_espace');
+
+Route::middleware(['web','auth'])->get('abonnement','IndexController@abonnement');
 Auth::routes();
