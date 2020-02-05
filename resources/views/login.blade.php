@@ -24,6 +24,9 @@
                     <div class="text-right">
                         <button type="submit" class="btn btn-primary">Connexion</button>
                     </div>
+                    
+                    <input type="checkbox" name="remember" />
+                    <small id="emailHelp" class="form-text text-muted">Se souvenir de moi</small>
                 </form>
                 <div class="result_title">
                 @if(!is_object($errors))
@@ -31,9 +34,9 @@
                 @endif
             </div>
             </div>
-            
+
         </div>
-            
+
     </div>
 
     <!-- Contenu -->
