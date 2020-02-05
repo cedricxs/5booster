@@ -11,18 +11,7 @@
 |
 */
 
-use Illuminate\Support\Facades\Auth;
-Route::get('/cr',function(){
-    User::create([
-            'username' => 'qwe',
-            'telephone' => 'qwe',
-            'email' => 'qwe@qwe.com',
-            'password' => Hash::make('qwe'),
-            'sex' => 'hemme',
-            'birthday' => '2019-01-01',
-            'remember_token' =>"sadefwfsdgfssags",
-        ]);
-});
+
 Route::middleware(['web','guest'])->get('/','IndexController@index');
 
 Route::middleware('web')->get('/history','IndexController@history');
