@@ -22,6 +22,12 @@ body {
     background: #fff;
 }
 
+#email{
+    position: absolute;
+    width : 40%;
+    left:30%;
+    top : 30%;
+}
 #wrapper {
     display: flex;
     width: 100%;
@@ -75,3 +81,4 @@ SVG Icons - svgicons.sparkk.fr
 .user-icon:hover {
     fill: #4691f6;
 }
+

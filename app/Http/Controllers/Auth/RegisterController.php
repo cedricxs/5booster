@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/Client_Espace';
+    protected $redirectTo = '/client';
 
     /**
      * Create a new controller instance.
@@ -63,6 +63,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
         return User::create([
             'username' => $data['username'],
             'telephone' => $data['telephone'],

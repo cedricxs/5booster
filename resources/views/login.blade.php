@@ -19,17 +19,21 @@
                     </div>
                     <div class="form-group" id="password">
                         <input name="password" type="password" class="form-control" placeholder="Mot de passe">
-                        <small id="emailHelp" class="form-text text-muted">Mot de passe oublié ?</small>
+                        <a href="{{url('/password/reset')}}"><small id="emailHelp" class="form-text text-muted">Mot de passe oublié ?</small></a>
                     </div>
                     <div class="text-right">
                         <button type="submit" class="btn btn-primary">Connexion</button>
                     </div>
-                    @if(isset($msg)>0)
-                        <p>{{$msg}}</p>
-                    @endif
                 </form>
+                <div class="result_title">
+                @if(!is_object($errors))
+                    <p>{{$errors}}</p>
+                @endif
             </div>
+            </div>
+            
         </div>
+            
     </div>
 
     <!-- Contenu -->

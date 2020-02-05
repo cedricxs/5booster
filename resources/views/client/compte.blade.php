@@ -74,17 +74,10 @@
                   <p> Date de naissance </p>
                 </div>
                 <div class="col-sm">
-                  <p> 18 avril </p>
+                  <p> {{$user->birthday}} </p>
                 </div>
               </div>
-              <div class="row m-auto">
-                <div class="col-sm">
-                  <p> Année de naissance </p>
-                </div>
-                <div class="col-sm">
-                  <p> 2000 </p>
-                </div>
-              </div>
+              
               <div class="row m-auto">
                 <div class="col-sm">
                   <p> Genre </p>
