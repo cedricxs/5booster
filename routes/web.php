@@ -21,4 +21,4 @@ Route::middleware(['web','auth'])->get('/client','IndexController@client');
 Route::middleware(['web','auth'])->get('client_espace','IndexController@client_espace');
 
 Route::middleware(['web','auth'])->get('abonnement','IndexController@abonnement');
-Auth::routes();
+Auth::routes(['verify'=>true]);

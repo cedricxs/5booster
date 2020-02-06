@@ -46,7 +46,10 @@
               </div>
             </div>
           </div>
-          <a href="#" class="btn btn-primary stretched-link">Modifier le mot de passe</a>
+          <a href="{{url('/password/reset')}}" class="btn btn-primary stretched-link">Modifier le mot de passe</a>
+            @if(!$user->hasVerifiedEmail())
+                <a href="{{url('/email/verify')}}" class="btn btn-primary stretched-link">Verifier votre e-mail</a>
+            @endif
         </div>
         <div class="col-sm" align="center">
           <div class="card text-center" style="width: 10rem;">
@@ -77,7 +80,7 @@
                   <p> {{$user->birthday}} </p>
                 </div>
               </div>
-              
+
               <div class="row m-auto">
                 <div class="col-sm">
                   <p> Genre </p>

@@ -12,8 +12,19 @@
          */
         protected $fillable = [
             'user_id', 'username', 'password',
-            'telephone','birthday','sex','email','remember_token',
+            'telephone','birthday','sex','email',
+            'remember_token','email_verified_at',
         ];
+
+        /**
+         * The attributes that should be cast to native types.
+         *
+         * @var array
+         */
+        protected $casts = [
+            'email_verified_at' => 'datetime',
+        ];
+
         protected $primaryKey = 'user_id';
         //public $timestamps = false;
         protected $table = 'User';
