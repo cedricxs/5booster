@@ -8,7 +8,7 @@
             </div>
             <div class="col-sm">
                 <div class="card text-center" style="width: 25rem;">
-                    <img src="{{asset('resources/img/run.jpg')}}" class="card-img-top" alt="Image">
+                    <img src="{{asset('/img/run.jpg')}}" class="card-img-top" alt="Image">
                 </div>
             </div>
             <div class="col-sm">
