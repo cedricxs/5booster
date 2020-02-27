@@ -1,7 +1,7 @@
 @extends('layout.client')
 @section('content')
-<!-- Contenu -->
 
+<!-- Content -->
 <div class="container d-flex flex-column">
   <div class="row m-auto">
     <div class="col-sm">
@@ -61,6 +61,6 @@
     </div>
   </div>
 </div>
+<!-- Content -->
 
-<!-- Contenu -->
 @endsection

@@ -9,61 +9,63 @@
     <link rel="stylesheet" type="text/css" href="{{asset('/css/style.css')}}">
 </head>
 
-<body>
-<header>
-    <!-- Bar de navigation -->
-    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light" id="nav">
-        <a class="navbar-brand" href="{{url('/')}}">5Booster</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+  <body>
+    <!-- Header-->
+    <header>
+        <!-- Navigation navbar -->
+        <nav class="navbar navbar-expand-sm navbar-light bg-light mb-2" id="nav">
+            <a class="navbar-brand" href="{{ url('/') }}">5Booster</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse" id="navbar">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Blog</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="{{url('/history')}}">Notre Histoire</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Nous contacter</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{url('/register')}}">Inscription</a>
-                </li>
-            </ul>
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/history') }}">Notre Histoire<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Nous contacter</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/register') }}">Inscription</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- Navigation navbar -->
+    </header>
+    <!-- Header-->
+
+    @yield('content')
+
+    <!-- Footer -->
+    <footer class="home-footer font-small bg-light">
+        <div class="row d-flex justify-content-center">
+          <div class="col-xs-12 col-sm-2 text-center text-wrap">
+            <a class="footer-link" href="">A propos</a>
+          </div>
+          <div class="col-xs-12 col-sm-2 text-center text-wrap">
+            <a class="footer-link" href="">Connexion</a>
+          </div>
+          <div class="col-xs-12 col-sm-2 text-center text-wrap">
+            <a class="footer-link" href="">Mentions légales</a>
+          </div>
+
+          <!-- Break the line -->
+          <div class="w-100"></div>
+
+          <!-- Copyright -->
+          <div class="footer-copyright text-center py-3">© 2020 Copyright:
+            <a>5booster</a>
+          </div>
+          <!-- Copyright -->
         </div>
-    </nav>
-    <!-- Bar de navigation -->
+    </footer>
+    <!-- Footer -->
 
-</header>
-@yield('content')
-
-<!-- Footer -->
-<footer class="footer">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="collapse navbar-collapse flex-md-column">
-            <ul class="navbar-nav m-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">A propos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Connexion</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Mentions légales</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav m-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="https://5booster.com/">©5Booster 2020</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</footer>
-<!-- Footer -->
-
-</body>
+  </body>
 </html>

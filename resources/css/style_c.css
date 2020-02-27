@@ -1,0 +1,57 @@
+body {
+  background: #fff;
+}
+
+#wrapper {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+}
+
+#header_connected {
+  background: #7386D5;
+}
+
+#sidebar {
+  min-width: 200px;
+  max-width: 200px;
+  min-height: 100vh;
+  background: #7386D5;
+  position: fixed;
+  z-index: 999;
+}
+
+#sidebar ul.components {
+  padding: 20px;
+  background: #6d7fcc;
+}
+
+#sidebar ul li a {
+  color: #fff;
+  padding: 10px;
+}
+
+#sidebar ul li a:hover {
+  color: #7386D5;
+  background: #fff;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* -----
+SVG Icons - svgicons.sparkk.fr
+----- */
+.user-icon {
+  width: 1em;
+  height: 1em;
+  fill : #000000;
+}
+
+.user-icon:hover {
+  fill: #4691f6;
+}
