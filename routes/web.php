@@ -17,7 +17,7 @@ Route::middleware(['web','guest'])->get('/','IndexController@index');
 
 Route::middleware('web')->get('/history','IndexController@history');
 
-Route::middleware(['web','auth'])->get('/client','IndexController@client');
+Route::middleware('web')->get('/client','IndexController@client');
 
 Route::middleware(['web','auth'])->get('client_espace','IndexController@client_espace');
 
