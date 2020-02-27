@@ -24,7 +24,7 @@
                     <a class="nav-link" href="#">Blog</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{url('/history')}}">Notre Histoire<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{url('/history')}}">Notre Histoire</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Nous contacter</a>
