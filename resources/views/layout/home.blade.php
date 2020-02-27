@@ -41,11 +41,8 @@
 
     @yield('content')
 
-    <div id="app">
-    </div>
-
     <!-- Footer -->
-    <footer class="page-footer font-small bg-light">
+    <footer class="home-footer font-small bg-light">
         <div class="row d-flex justify-content-center">
           <div class="col-xs-12 col-sm-2 text-center text-wrap">
             <a class="footer-link" href="">A propos</a>

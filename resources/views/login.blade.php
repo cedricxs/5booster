@@ -2,12 +2,12 @@
 @section('content')
 
     <!-- Content -->
-    <div class="container">
+    <div class="home-container">
         <div class="row">
             <div class="col-xs-12 col-md-6 offset-md-3" id="img-home">
                   <img src="{{ asset('resources/img/run.jpg') }}" class="img-fluid rounded" alt="Responsive image">
             </div>
-            <div class="col-xs-12 col-md-3">
+            <div class="col-xs-12 col-md-2">
                 <form class="right" method="post" action="{{ url('login') }}">
                     {{ csrf_field() }}
                     <div class="form-group" id="username">

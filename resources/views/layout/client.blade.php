@@ -46,8 +46,6 @@
     {{--@yield('content')--}}
 
     <div id="container">
-      <workouts></workouts>
-      <workout-preview></workout-preview>
     </div>
 
     <!-- Footer -->
