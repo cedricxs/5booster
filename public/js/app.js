@@ -1921,11 +1921,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      msg: 'Vue - Laravel - Example',
+      author: ' Chan',
+      email: '@gmail.com'
+    };
+  }
+});
 
 /***/ }),
 
@@ -1975,7 +1979,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "\n.fade-enter-active, .fade-leave-active {\n    transition: opacity .5s\n}\n.fade-enter, .fade-leave-active {\n    opacity: 0\n}\n", ""]);
+exports.push([module.i, "\nhtml, body {\n    height: 100%;\n}\nbody {\n    margin: 0;\n    padding: 0;\n    width: 100%;\n    display: table;\n    font-weight: 100;\n    font-family: 'Lato';\n}\n.container {\n    text-align: center;\n    display: table-cell;\n    vertical-align: middle;\n}\n.content {\n    text-align: center;\n    display: inline-block;\n}\n.title {\n    font-size: 96px;\n}\n.links > a {\n    color: #636b6f;\n    padding: 0 25px;\n    font-size: 12px;\n    font-weight: 600;\n    letter-spacing: .1rem;\n    text-decoration: none;\n    text-transform: uppercase;\n}\n", ""]);
 
 // exports
 
@@ -3154,11 +3158,23 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c(
-      "div",
-      [_c("transition", { attrs: { name: "fade" } }, [_c("router-view")], 1)],
-      1
-    )
+    _c("div", { staticClass: "content" }, [
+      _c("div", { staticClass: "title" }, [_vm._v(_vm._s(_vm.msg))]),
+      _vm._v(" "),
+      _c("div", { staticClass: "links" }, [
+        _c("a", { attrs: { href: "https://pigjian.com" } }, [
+          _vm._v("Author: " + _vm._s(_vm.author))
+        ]),
+        _vm._v(" "),
+        _c("a", { attrs: { href: "https://pigjian.com" } }, [
+          _vm._v("Email: " + _vm._s(_vm.email))
+        ]),
+        _vm._v(" "),
+        _c("a", { attrs: { href: "https://github.com/jcc" } }, [
+          _vm._v("GitHub")
+        ])
+      ])
+    ])
   ])
 }
 var staticRenderFns = []
@@ -18383,6 +18399,10 @@ var routes = [{
   name: 'Example',
   path: '/ex',
   component: _components_Example_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
+}, {
+  name: 'App',
+  path: '/app',
+  component: _App_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: 'history',

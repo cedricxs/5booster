@@ -2,33 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fba3cf10-2f1b-4db9-aa24-9a5dbf3e8067" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/js/e.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/App.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/Example.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/example.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/public/.htaccess" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/server.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/css/ch-ui.admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/ch-ui.admin.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/font/css/font-awesome.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/font/css/font-awesome.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/font/css/font-awesome.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/font/css/font-awesome.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/font/fonts/FontAwesome.otf" beforeDir="false" afterPath="$PROJECT_DIR$/public/font/fonts/FontAwesome.otf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/font/fonts/fontawesome-webfont.eot" beforeDir="false" afterPath="$PROJECT_DIR$/public/font/fonts/fontawesome-webfont.eot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/font/fonts/fontawesome-webfont.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/font/fonts/fontawesome-webfont.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/font/fonts/fontawesome-webfont.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/public/font/fonts/fontawesome-webfont.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/font/fonts/fontawesome-webfont.woff" beforeDir="false" afterPath="$PROJECT_DIR$/public/font/fonts/fontawesome-webfont.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/font/fonts/fontawesome-webfont.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/public/font/fonts/fontawesome-webfont.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/img/run.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/run.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/img/training.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/training.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/img/yoga.webp" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/yoga.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/e.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/App.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layout/client.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/client.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layout/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/login.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.php" beforeDir="false" afterPath="$PROJECT_DIR$/server.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -150,8 +132,8 @@
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\97958\5booster\public" />
-      <recent name="C:\Users\97958\5booster\public\css" />
       <recent name="C:\Users\97958\5booster\resources" />
+      <recent name="C:\Users\97958\5booster\public\css" />
       <recent name="C:\Users\97958\5booster\resources\js" />
     </key>
   </component>
@@ -198,7 +180,10 @@
       <workItem from="1581021952617" duration="9974000" />
       <workItem from="1581071664457" duration="489000" />
       <workItem from="1581720208253" duration="12000" />
-      <workItem from="1582726076494" duration="10066000" />
+      <workItem from="1582726076494" duration="27320000" />
+      <workItem from="1582803118957" duration="4630000" />
+      <workItem from="1582824885072" duration="11077000" />
+      <workItem from="1582838438271" duration="2229000" />
     </task>
     <servers />
   </component>

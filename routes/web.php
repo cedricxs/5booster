@@ -11,7 +11,7 @@
 |
 */
 
-
+use Illuminate\Support\Facades\App;
 Route::middleware(['web','guest'])->get('/','IndexController@index');
 
 Route::middleware('web')->get('/history','IndexController@history');
@@ -26,4 +26,12 @@ Auth::routes(['verify'=>true]);
 Route::get('ex',function(){
     return view('example');
 });
-
+Route::get('app',function(){
+    $app = App::getFacadeApplication();
+    $class = new \ReflectionClass($app);
+    $methods = $class->getMethods();
+    $provider = $app->make('ppp');
+    dd($provider);
+    return $app->serviceProviders;
+    dd($provider);
+});

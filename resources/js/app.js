@@ -12,6 +12,11 @@ const routes = [
         name: 'Example',
         path: '/ex',
         component: Example
+    },
+    {
+        name: 'App',
+        path: '/app',
+        component: App
     }
 ];
 const router = new VueRouter({mode: 'history', routes: routes});

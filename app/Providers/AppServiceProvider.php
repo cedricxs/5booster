@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use Faker\Provider\Person;
+use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +15,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton('ppp', function ($app) {
+                    return $app;
+                });
     }
 
     /**
