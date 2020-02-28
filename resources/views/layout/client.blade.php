@@ -9,13 +9,9 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-    <link rel="stylesheet" href="{{asset('/css/ch-ui.admin.css')}}">
-    <link rel="stylesheet" href="{{asset('/font/css/font-awesome.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('/css/style.css')}}">
 
-    <!-- <link rel="stylesheet" type="text/css" href="{{ asset('public/css/style.css') }}"> -->
-    <script defer src="{{ asset('public/js/app.js') }}"></script>
+    <script defer src="{{ asset('/js/app.js') }}"></script>
 
 </head>
 
@@ -51,42 +47,36 @@
     </header>
     <!-- Header -->
 
-    {{--@yield('content')--}}
+{{--    @yield('content')--}}
 
     <div id="container">
     </div>
 
     <!-- Footer -->
 
-    {{--<footer class="page-footer-connected font-small bg-light">
-        <div class="row d-flex justify-content-center">
-          <div class="col-xs-12 col-sm-2 text-center text-wrap">
-            <a class="footer-link" href="">A propos</a>
-          </div>
-          <div class="col-xs-12 col-sm-2 text-center text-wrap">
-            <a class="footer-link" href="">Connexion</a>
-          </div>
-          <div class="col-xs-12 col-sm-2 text-center text-wrap">
-            <a class="footer-link" href="">Mentions légales</a>
-          </div>
-
-          <!-- Break the line -->
-          <div class="w-100"></div>
-
-          <!-- Copyright -->
-          <div class="footer-copyright text-center py-3">© 2020 Copyright:
-            <a>5booster</a>
-          </div>
-          <!-- Copyright -->
-        </div>
-<<<<<<< HEAD
-    </nav>
-</footer>
-</body>
-=======
-    </footer>--}}
+    <footer class="footer">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="collapse navbar-collapse flex-md-column">
+                <ul class="navbar-nav m-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">A propos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Connexion</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Mentions légales</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav m-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://5booster.com/">©5Booster 2020</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </footer>
     <!-- Footer -->
 
-  <!-- <script type="text/javascript" src="js/script.js"></script> -->
   </body>
 </html>

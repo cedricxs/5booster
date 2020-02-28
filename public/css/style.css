@@ -1,104 +1,84 @@
+
 html {
-  height: 100%;
+    position: relative;
+    min-height: 100vh;
 }
 
 body {
-  position: absolute;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+    height: auto;
+    min-height: 100vh;
 }
 
-header {
-  position: absolute;
-  height: 10%;
-  width: 100%;
+.container {
+    padding-top: 50px;
+    padding-bottom: 150px;
 }
 
-footer.home-footer {
-  flex-shrink: 0;
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+body {
+    background: #fff;
 }
 
-footer.page-footer-connected {
-  flex-shrink: 0;
-  bottom: 0;
-  z-index: 1;
+#email{
+    position: absolute;
+    width : 60%;
+    left:30%;
+    top : 30%;
 }
-
-.home-container {
-  flex: 1 0 auto;
-  margin-top: 12vh;
-  margin-bottom: 12vh;
-}
-
-main {
-  position: absolute;
-  height: 100%;
-  min-width: 200px;
-  left: 0;
-}
-
 #wrapper {
-  position: absolute;
-  display: flex;
-  width: 100%;
-  height: 100%;
-  align-items: stretch;
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+#header_connected {
+    background: #7386D5;
 }
 
 #sidebar {
-  top: 10%;
-  min-width: 200px;
-  max-width: 200px;
-  min-height: 100vh;
-  background: #7386D5;
-  position: fixed;
+    min-width: 200px;
+    max-width: 200px;
+    min-height: 100vh;
+    background: #7386D5;
+    position: fixed;
+    z-index: 999;
 }
 
 #sidebar ul.components {
-  padding: 20px;
-  background: #6d7fcc;
+    padding: 20px;
+    background: #6d7fcc;
 }
 
 #sidebar ul li a {
-  color: #fff;
-  padding: 10px;
+    color: #fff;
+    padding: 10px;
 }
 
 #sidebar ul li a:hover {
-  color: #7386D5;
-  background: #fff;
+    color: #7386D5;
+    background: #fff;
 }
 
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+}
 
 /* -----
 SVG Icons - svgicons.sparkk.fr
 ----- */
 .user-icon {
-  width: 1em;
-  height: 1em;
-  fill : #000000;
+    width: 1em;
+    height: 1em;
+    fill : #000000;
 }
 
 .user-icon:hover {
-  fill: #4691f6;
-}
-
-
-.footer-link {
-  color: rgba(0,0,0,.5);
-}
-
-.footer-link:hover {
-  text-decoration: none;
-  color: rgba(0,0,0,.8);
-}
-
-#emailHelp {
-  color: rgba(0,0,0,.5);
-}
-
-#emailHelp:hover {
-  text-decoration: none;
-  color: rgba(0,0,0,.8);
+    fill: #4691f6;
 }

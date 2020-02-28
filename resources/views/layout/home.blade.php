@@ -43,28 +43,29 @@
     @yield('content')
 
     <!-- Footer -->
-    <footer class="home-footer font-small bg-light">
-        <div class="row d-flex justify-content-center">
-          <div class="col-xs-12 col-sm-2 text-center text-wrap">
-            <a class="footer-link" href="">A propos</a>
-          </div>
-          <div class="col-xs-12 col-sm-2 text-center text-wrap">
-            <a class="footer-link" href="">Connexion</a>
-          </div>
-          <div class="col-xs-12 col-sm-2 text-center text-wrap">
-            <a class="footer-link" href="">Mentions légales</a>
-          </div>
-
-          <!-- Break the line -->
-          <div class="w-100"></div>
-
-          <!-- Copyright -->
-          <div class="footer-copyright text-center py-3">© 2020 Copyright:
-            <a>5booster</a>
-          </div>
-          <!-- Copyright -->
-        </div>
+    <footer class="footer">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="collapse navbar-collapse flex-md-column">
+                <ul class="navbar-nav m-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">A propos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Connexion</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Mentions légales</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav m-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://5booster.com/">©5Booster 2020</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     </footer>
+
     <!-- Footer -->
 
   </body>
