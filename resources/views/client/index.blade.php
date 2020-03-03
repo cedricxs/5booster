@@ -2,7 +2,7 @@
 @section('content')
 
     <!-- Wrapper de sidebar -->
-    <main>
+    <div id="client-menu" class="col-md-2">
 
       <!-- Wrapper of sidebar -->
       <div id="wrapper">
@@ -32,6 +32,6 @@
         </nav>
       </div>
 
-    </main>
+    </div>
 
 @endsection

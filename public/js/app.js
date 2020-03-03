@@ -100,6 +100,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 // Imports
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -119,6 +121,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
 //
 //
 //
@@ -263,6 +269,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -310,6 +320,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
 //
 //
 //
@@ -505,7 +519,7 @@ __webpack_require__.r(__webpack_exports__);
         title: 'Super Workout 4',
         url_preview: '',
         url_workout: '',
-        focus: 'core-body',
+        focus: 'core',
         type: 'cardio',
         difficulty: 'easy'
       }, {
@@ -1041,7 +1055,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("workouts")
+  return _c("div", { staticClass: "col-10" }, [_c("workouts")], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -1065,12 +1079,11 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "card" },
-    [
-      _c("h3", { staticClass: "text-center" }, [_vm._v("Difficulty Filter")]),
-      _vm._v(" "),
+  return _c("div", { staticClass: "mb-2" }, [
+    _vm._m(0),
+    _c(
+      "div",
+      { staticClass: "collapse", attrs: { id: "difficulty-filter-collapse" } },
       _vm._l(_vm.radios, function(radio) {
         return _c("div", { staticClass: "custom-control custom-radio" }, [
           _vm.type_input === "checkbox"
@@ -1181,15 +1194,39 @@ var render = function() {
           _c(
             "label",
             { staticClass: "custom-control-label", attrs: { for: radio.id } },
-            [_vm._v("\n      " + _vm._s(radio.label) + "\n    ")]
+            [_vm._v("\n          " + _vm._s(radio.label) + "\n        ")]
           )
         ])
-      })
-    ],
-    2
-  )
+      }),
+      0
+    ),
+    _vm._v(" "),
+    _c("p")
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "text" }, [
+      _c(
+        "a",
+        {
+          staticClass: "btn text-wrap filter-collapse",
+          attrs: {
+            "data-toggle": "collapse",
+            href: "#difficulty-filter-collapse",
+            role: "button",
+            "aria-expanded": "false",
+            "aria-controls": "filter-collapse-control"
+          }
+        },
+        [_vm._v("Difficulty")]
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -1214,7 +1251,11 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("h3", { staticClass: "text-center card" }, [_vm._v("Filter")]),
+      _c(
+        "p",
+        { staticClass: "text-wrap", attrs: { id: "workouts-filter-title" } },
+        [_vm._v("Filter")]
+      ),
       _vm._v(" "),
       _c("focus-filter", { on: { change_filter: _vm.change_filter } }),
       _vm._v(" "),
@@ -1247,12 +1288,11 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "card" },
-    [
-      _c("h3", { staticClass: "text-center" }, [_vm._v("Focus Filter")]),
-      _vm._v(" "),
+  return _c("div", { staticClass: "mb-2" }, [
+    _vm._m(0),
+    _c(
+      "div",
+      { staticClass: "collapse", attrs: { id: "focus-filter-collapse" } },
       _vm._l(_vm.radios, function(radio) {
         return _c("div", { staticClass: "custom-control custom-radio" }, [
           _vm.type_input === "checkbox"
@@ -1363,15 +1403,39 @@ var render = function() {
           _c(
             "label",
             { staticClass: "custom-control-label", attrs: { for: radio.id } },
-            [_vm._v("\n      " + _vm._s(radio.label) + "\n    ")]
+            [_vm._v("\n          " + _vm._s(radio.label) + "\n        ")]
           )
         ])
-      })
-    ],
-    2
-  )
+      }),
+      0
+    ),
+    _vm._v(" "),
+    _c("p")
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "text" }, [
+      _c(
+        "a",
+        {
+          staticClass: "btn text-wrap filter-collapse",
+          attrs: {
+            "data-toggle": "collapse",
+            href: "#focus-filter-collapse",
+            role: "button",
+            "aria-expanded": "false",
+            "aria-controls": "filter-collapse-control"
+          }
+        },
+        [_vm._v("Focus")]
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -1393,12 +1457,11 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "card" },
-    [
-      _c("h3", { staticClass: "text-center" }, [_vm._v("Type Filter")]),
-      _vm._v(" "),
+  return _c("div", { staticClass: "mb-2" }, [
+    _vm._m(0),
+    _c(
+      "div",
+      { staticClass: "collapse", attrs: { id: "type-filter-collapse" } },
       _vm._l(_vm.radios, function(radio) {
         return _c("div", { staticClass: "custom-control custom-radio" }, [
           _vm.type_input === "checkbox"
@@ -1509,15 +1572,39 @@ var render = function() {
           _c(
             "label",
             { staticClass: "custom-control-label", attrs: { for: radio.id } },
-            [_vm._v("\n      " + _vm._s(radio.label) + "\n    ")]
+            [_vm._v("\n          " + _vm._s(radio.label) + "\n        ")]
           )
         ])
-      })
-    ],
-    2
-  )
+      }),
+      0
+    ),
+    _vm._v(" "),
+    _c("p")
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "text" }, [
+      _c(
+        "a",
+        {
+          staticClass: "btn text-wrap filter-collapse",
+          attrs: {
+            "data-toggle": "collapse",
+            href: "#type-filter-collapse",
+            role: "button",
+            "aria-expanded": "false",
+            "aria-controls": "filter-collapse-control"
+          }
+        },
+        [_vm._v("Type")]
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -1539,8 +1626,8 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("h3", { staticClass: "text-center" }, [
+  return _c("div", { staticClass: "col-md-12 card mb-4" }, [
+    _c("h4", { staticClass: "text-center" }, [
       _vm._v(_vm._s(_vm.workout.title))
     ]),
     _vm._v(" "),
@@ -1578,8 +1665,15 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row" }, [
-    _c("div", { staticClass: "col-7 card offset-1" }, [
-      _c("h2", { staticClass: "text-center card" }, [_vm._v("Workouts")]),
+    _c("div", { staticClass: "col-7 offset-1" }, [
+      _c(
+        "h2",
+        {
+          staticClass: "text-center",
+          attrs: { id: "workouts-global-preview-title" }
+        },
+        [_vm._v("Workouts")]
+      ),
       _vm._v(" "),
       _c(
         "div",
@@ -1587,7 +1681,7 @@ var render = function() {
         _vm._l(_vm.filtered_workouts, function(workout) {
           return _c(
             "div",
-            { staticClass: "card card-body" },
+            { staticClass: "col-sm-12 col-md-6 col-lg-4" },
             [_c("workout-preview", { attrs: { workout: workout } })],
             1
           )
@@ -1598,7 +1692,10 @@ var render = function() {
     _vm._v(" "),
     _c(
       "div",
-      { staticClass: "col-3 card" },
+      {
+        staticClass: "col-3 offset-1",
+        attrs: { id: "workouts-filter-container" }
+      },
       [_c("workout-filter", { on: { change_filter: _vm.update_filter } })],
       1
     )
@@ -13819,7 +13916,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
-  el: "#container",
+  el: "#app",
   render: function render(h) {
     return h(_App_vue__WEBPACK_IMPORTED_MODULE_1__["default"]);
   }

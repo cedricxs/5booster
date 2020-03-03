@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3 class="text-center card">Filter</h3>
+    <p class="text-wrap" id="workouts-filter-title">Filter</p>
     <focus-filter v-on:change_filter="change_filter"></focus-filter>
     <type-filter v-on:change_filter="change_filter"></type-filter>
     <difficulty-filter v-on:change_filter="change_filter"></difficulty-filter>

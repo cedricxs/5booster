@@ -3,16 +3,10 @@ html {
 }
 
 body {
-  position: absolute;
+  /* position: absolute; */
   height: 100%;
   display: flex;
   flex-direction: column;
-}
-
-header {
-  position: absolute;
-  height: 10%;
-  width: 100%;
 }
 
 footer.home-footer {
@@ -20,9 +14,7 @@ footer.home-footer {
 }
 
 footer.page-footer-connected {
-  flex-shrink: 0;
-  bottom: 0;
-  z-index: 1;
+
 }
 
 .home-container {
@@ -31,28 +23,13 @@ footer.page-footer-connected {
   margin-bottom: 12vh;
 }
 
-main {
-  position: absolute;
-  height: 100%;
-  min-width: 200px;
-  left: 0;
-}
-
-#wrapper {
-  position: absolute;
-  display: flex;
-  width: 100%;
-  height: 100%;
-  align-items: stretch;
-}
-
 #sidebar {
-  top: 10%;
-  min-width: 200px;
-  max-width: 200px;
+  /* top: 10%; */
+  /* min-width: 200px; */
+  /* max-width: 200px; */
   min-height: 100vh;
   background: #7386D5;
-  position: fixed;
+  /* position: fixed; */
 }
 
 #sidebar ul.components {
@@ -101,4 +78,55 @@ SVG Icons - svgicons.sparkk.fr
 #emailHelp:hover {
   text-decoration: none;
   color: rgba(0,0,0,.8);
+}
+
+
+/*
+***************************************************************************************************************************
+***************************************************************************************************************************
+******************************************************** WORKOUT APP CSS **************************************************
+***************************************************************************************************************************
+***************************************************************************************************************************
+*/
+
+#workouts-filter-title {
+  text-transform: uppercase;
+  font-family: 'Pathway Gothic One', Arial, sans-serif;
+  margin-top: 10px;
+  font-size: 25px;
+  font-weight: normal!important;
+  border-bottom: solid;
+  border-width: 1px;
+  border-color: lightgray;
+}
+
+#workouts-global-preview-title {
+  text-transform: uppercase;
+  font-family: 'Pathway Gothic One', Arial, sans-serif;
+  margin-top: 10px;
+  font-weight: normal!important;
+}
+
+.filter-collapse {
+  background-color: lightgray;
+  border-radius: none!important;
+  text-transform: uppercase;
+  font-family: 'Pathway Gothic One', Arial, sans-serif;
+  font-weight: bold;
+  letter-spacing: .2em;
+  font-size: 14px;
+}
+
+.filter-collapse:focus {
+  outline: none;
+  box-shadow:none;
+}
+
+#workouts-filter-container {
+  background-color: #e5e5e5;
+  border: none;
+}
+
+.workout-preview {
+  background: gray;
 }
