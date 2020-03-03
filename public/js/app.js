@@ -475,64 +475,16 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     fetchWorkouts: function fetchWorkouts() {
+      var _this = this;
+
       // Request from API here
-      this.workouts = [{
-        id: 1,
-        title: 'Super Workout 1',
-        url_preview: '',
-        url_workout: '',
-        focus: 'upper-body',
-        type: 'cardio',
-        difficulty: 'easy'
-      }, {
-        id: 2,
-        title: 'Super Workout 2',
-        url_preview: '',
-        url_workout: '',
-        focus: 'upper-body',
-        type: 'cardio',
-        difficulty: 'easy'
-      }, {
-        id: 3,
-        title: 'Super Workout 3',
-        url_preview: '',
-        url_workout: '',
-        focus: 'lower-body',
-        type: 'mass',
-        difficulty: 'easy'
-      }, {
-        id: 4,
-        title: 'Super Workout 4',
-        url_preview: '',
-        url_workout: '',
-        focus: 'core-body',
-        type: 'cardio',
-        difficulty: 'easy'
-      }, {
-        id: 5,
-        title: 'Super Workout 5',
-        url_preview: '',
-        url_workout: '',
-        focus: 'upper-body',
-        type: 'mass',
-        difficulty: 'easy'
-      }, {
-        id: 6,
-        title: 'Super Workout 6',
-        url_preview: '',
-        url_workout: '',
-        focus: 'upper-body',
-        type: 'strength',
-        difficulty: 'easy'
-      }, {
-        id: 7,
-        title: 'Super Workout 7',
-        url_preview: '',
-        url_workout: '',
-        focus: 'lower-body',
-        type: 'power',
-        difficulty: 'easy'
-      }]; // Temp solution without fectch API
+      fetch("/api/workouts").then(function (res) {
+        return res.json().then(function (data) {
+          return data.forEach(function (workout) {
+            return _this.workouts.push(workout);
+          });
+        });
+      });
     },
     update_filter: function update_filter(data) {
       this.filter = data;
@@ -540,13 +492,13 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     filtered_workouts: function filtered_workouts() {
-      var _this = this;
+      var _this2 = this;
 
       return this.workouts.filter(function (workout) {
-        var _this$filter = _this.filter,
-            focus = _this$filter.focus,
-            type = _this$filter.type,
-            difficulty = _this$filter.difficulty;
+        var _this2$filter = _this2.filter,
+            focus = _this2$filter.focus,
+            type = _this2$filter.type,
+            difficulty = _this2$filter.difficulty;
         var allFocus = focus === "all";
         var allType = type === "all";
         var allDifficulty = difficulty === "all";
@@ -14259,8 +14211,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\comev\Documents\Ptrans\5booster\resources\assets\js\app.js */"./resources/assets/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\comev\Documents\Ptrans\5booster\resources\assets\sass\app.scss */"./resources/assets/sass/app.scss");
+__webpack_require__(/*! C:\Users\97958\5booster\resources\assets\js\app.js */"./resources/assets/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\97958\5booster\resources\assets\sass\app.scss */"./resources/assets/sass/app.scss");
 
 
 /***/ })

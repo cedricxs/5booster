@@ -2,8 +2,10 @@
     namespace App\Http\Model;
     use Illuminate\Notifications\Notifiable;
     use Illuminate\Foundation\Auth\User as Authenticatable;
+    use Laravel\Cashier\Billable;
     class User extends Authenticatable{
 
+        use Billable;
         use Notifiable;
         /**
          * The attributes that are mass assignable.
@@ -27,5 +29,5 @@
 
         protected $primaryKey = 'user_id';
         //public $timestamps = false;
-        protected $table = 'User';
+        protected $table = 'users';
     }

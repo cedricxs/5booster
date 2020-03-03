@@ -53,7 +53,7 @@
         </div>
         <div class="col-sm" align="center">
           <div class="card text-center" style="width: 10rem;">
-            <img src="{{asset('resources/img/run.jpg')}}" class="card-img-top" alt="Image">
+            <img src="{{asset('/img/run.jpg')}}" class="card-img-top" alt="Image">
           </div>
         </div>
       </div>

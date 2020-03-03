@@ -82,3 +82,40 @@ SVG Icons - svgicons.sparkk.fr
 .user-icon:hover {
     fill: #4691f6;
 }
+#main_container{
+    position: absolute;
+    left: 15%;
+    top: 0;
+    width: 85%;
+    height: 100%;
+}
+#Programme_Finder{
+    position: absolute;
+    left: 10%;
+    top: 20%;
+    width: 20%;
+    height: 40%;
+}
+#Programme_Finder:hover{
+    transform: scale(1.1);
+}
+#Tendances{
+     position: absolute;
+     left: 36%;
+     width: 20%;
+     height: 40%;
+     top: 20%;
+ }
+#Tendances:hover{
+    transform: scale(1.1);
+}
+#Programme_Perso{
+    position: absolute;
+    width: 20%;
+    height: 40%;
+    left: 65%;
+    top: 20%;
+}
+#Programme_Perso:hover{
+    transform: scale(1.1);
+}

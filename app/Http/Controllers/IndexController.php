@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Model\User;
 
 class IndexController extends Controller
 {
     public function index()
     {
-        return view('login');
+        return view('auth.login');
     }
 
     public function history()
@@ -18,22 +19,4 @@ class IndexController extends Controller
         return view('history');
     }
 
-    public function register()
-    {
-        return view('register');
-    }
-    public function client()
-    {
-        return view('client.index');
-    }
-
-    public function client_espace()
-    {
-        $user = Auth::guard()->getUser();
-        return view('client.compte')->with('user',$user);
-    }
-
-    public function abonnement(){
-        return view('client.abonnement');
-    }
 }

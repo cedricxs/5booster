@@ -7,7 +7,7 @@
           <div class="col-sm">
           </div>
           <div class="col-sm">
-              <form class="Inscription" method="post" action="">
+              <form class="Inscription" method="post" action="{{url('/register')}}">
                   {{csrf_field()}}
                   <div class="form-group" id="mail">
                       <input type="email" class="form-control" placeholder="Adresse mail" name="email"/>
@@ -29,9 +29,9 @@
                       <fieldset>
                           <legend>Genre</legend>
                           <div>
-                              <input type="radio" id="homme" name="contact" value="homme"/>
+                              <input type="radio" id="homme" name="sex" value="homme"/>
                               <label for="homme">Homme</label>
-                              <input type="radio" id="femme" name="contact" value="femme"/>
+                              <input type="radio" id="femme" name="sex" value="femme"/>
                               <label for="homme">Femme</label>
                           </div>
                       </fieldset>

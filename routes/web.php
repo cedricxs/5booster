@@ -16,22 +16,37 @@ Route::middleware(['web','guest'])->get('/','IndexController@index');
 
 Route::middleware('web')->get('/history','IndexController@history');
 
-Route::middleware(['web',])->get('/client','IndexController@client');
+Route::group(['prefix'=>'client','namespace'=>'client','middleware'=>['web','auth']],function (){
+    Route::get('/','IndexController@client');
+    Route::get('/espace','IndexController@espace');
+    Route::get('/sport','IndexController@sport');
+    Route::get('/filtre','IndexController@filtre');
+    Route::get('/tendances','IndexController@tendances');
+    Route::get('/prog_perso','IndexController@prog_perso');
+    Route::get('/recettes','IndexController@recettes');
+    Route::get('/perso','IndexController@perso');
+    Route::get('/coach','IndexController@coach');
+    Route::get('/rdv','IndexController@rdv');
+    Route::get('/formulaire','IndexController@formulaire');
+    Route::get('/abonnement','IndexController@abonnement');
 
-Route::middleware(['web','auth'])->get('client_espace','IndexController@client_espace');
+});
 
-Route::middleware(['web','auth'])->get('abonnement','IndexController@abonnement');
 Auth::routes(['verify'=>true]);
+
+
 
 Route::get('ex',function(){
     return view('example');
 });
 Route::get('app',function(){
     $app = App::getFacadeApplication();
-    $class = new \ReflectionClass($app);
-    $methods = $class->getMethods();
-    $provider = $app->make('ppp');
-    dd($provider);
-    return $app->serviceProviders;
-    dd($provider);
+//    $class = new \ReflectionClass($app);
+//    $methods = $class->getMethods();
+//    $provider = $app->make('ppp');
+//    dd($provider);
+//    return $app->serviceProviders;
+//    dd($provider);
+    $request = $app->make('Illuminate\Http\Request');
+    dd($request);
 });
