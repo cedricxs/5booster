@@ -2,9 +2,9 @@
 
 @section('content')
 
-@if(Session::has('status'))
-    <p> {{Session::get('status')}}</p>
-@endif
+    @if(Session::has('status'))
+        <p> {{Session::get('status')}}</p>
+    @endif
 
 
 

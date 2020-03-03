@@ -11,7 +11,7 @@
 
 
     <div class="col-sm" id="email">
-        <form class="Forget" method="post" action="{{url('/email/resend')}}">
+        <form class="Verify" method="post" action="{{url('/email/resend')}}">
 
             {{csrf_field()}}
             <div class="form-group" id="mail">

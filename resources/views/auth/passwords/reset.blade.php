@@ -8,7 +8,7 @@
         <form method="post" action="{{url('/password/reset')}}" >
             {{csrf_field()}}
             <input type="hidden" name="token" value="{{$token}}"  >
-	    <input type="hidden" name="email" value="{{$email}}" >
+            <input type="hidden" name="email" value="{{$email}}" >
             <table class="add_tab">
                 <tbody>
                 <tr>
@@ -35,3 +35,4 @@
         </form>
     </div>
 @endsection
+

@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => "https://5booster.com",
+    'url' => "https://mybooster.com",
 
     'asset_url' => env('ASSET_URL', null),
 
