@@ -1,22 +1,22 @@
 <template>
   <div class="row">
 
-    <!-- Workout display -->
-    <div class="col-7 card offset-1">
-      <h2 class="text-center card">Workouts</h2>
+    <!-- Workout component -->
+    <div class="col-7 offset-1">
+      <h2 class="text-center" id="workouts-global-preview-title">Workouts</h2>
       <div class="row">
-        <div class="card card-body" v-for="workout in filtered_workouts">
+        <div class="col-sm-12 col-md-6 col-lg-4" v-for="workout in filtered_workouts">
           <workout-preview v-bind:workout="workout"></workout-preview>
         </div>
       </div>
     </div>
-    <!-- Workout display -->
+    <!-- Workout component -->
 
-    <!-- Filter display -->
-    <div class="col-3 card">
+    <!-- Filter component -->
+    <div class="col-3 offset-1" id="workouts-filter-container">
       <workout-filter v-on:change_filter="update_filter"></workout-filter>
     </div>
-    <!-- Filter display -->
+    <!-- Filter component -->
 
   </div>
 </template>
@@ -62,6 +62,7 @@
       fetchWorkouts() {
         // Request from API here
           fetch("/api/workouts").then(res => res.json().then(data=>data.forEach(workout=>this.workouts.push(workout))));
+
       },
 
       update_filter(data) {

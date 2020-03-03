@@ -11,7 +11,7 @@ class IndexController extends Controller
 {
     public function client()
     {
-        return view('client.sport');
+        return view('client.index');
     }
 
     public function espace()

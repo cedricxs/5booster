@@ -3,7 +3,7 @@
 @section('content')
 
     <!-- Wrapper de sidebar -->
-    <main style="position:absolute; width: 100%;height: 100%">
+    <main id="centre">
 
         <!-- Wrapper of sidebar -->
         <div id="wrapper">

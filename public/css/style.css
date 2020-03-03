@@ -1,51 +1,35 @@
-
 html {
-    position: relative;
-    min-height: 100vh;
+    height: 100%;
 }
 
 body {
-    height: auto;
-    min-height: 100vh;
-}
-
-.container {
-    padding-top: 50px;
-    padding-bottom: 150px;
-}
-
-.footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-}
-body {
-    background: #fff;
-}
-
-#email{
-    position: absolute;
-    width : 60%;
-    left:30%;
-    top : 30%;
-}
-#wrapper {
+    /* position: absolute; */
+    height: 100%;
     display: flex;
-    width: 100%;
-    align-items: stretch;
+    flex-direction: column;
 }
 
-#header_connected {
-    background: #7386D5;
+footer.home-footer {
+    flex-shrink: 0;
+}
+
+footer.page-footer-connected {
+
+}
+
+.home-container {
+    flex: 1 0 auto;
+    margin-top: 12vh;
+    margin-bottom: 12vh;
 }
 
 #sidebar {
-    min-width: 200px;
-    max-width: 200px;
+    /* top: 10%; */
+    /* min-width: 200px; */
+    /* max-width: 200px; */
     min-height: 100vh;
     background: #7386D5;
-    position: fixed;
-    z-index: 999;
+    /* position: fixed; */
 }
 
 #sidebar ul.components {
@@ -63,12 +47,6 @@ body {
     background: #fff;
 }
 
-.footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    z-index: 1000;
-}
 
 /* -----
 SVG Icons - svgicons.sparkk.fr
@@ -82,40 +60,73 @@ SVG Icons - svgicons.sparkk.fr
 .user-icon:hover {
     fill: #4691f6;
 }
-#main_container{
-    position: absolute;
-    left: 15%;
-    top: 0;
-    width: 85%;
-    height: 100%;
+
+
+.footer-link {
+    color: rgba(0,0,0,.5);
 }
-#Programme_Finder{
-    position: absolute;
-    left: 10%;
-    top: 20%;
-    width: 20%;
-    height: 40%;
+
+.footer-link:hover {
+    text-decoration: none;
+    color: rgba(0,0,0,.8);
 }
-#Programme_Finder:hover{
-    transform: scale(1.1);
+
+#emailHelp {
+    color: rgba(0,0,0,.5);
 }
-#Tendances{
-     position: absolute;
-     left: 36%;
-     width: 20%;
-     height: 40%;
-     top: 20%;
- }
-#Tendances:hover{
-    transform: scale(1.1);
+
+#emailHelp:hover {
+    text-decoration: none;
+    color: rgba(0,0,0,.8);
 }
-#Programme_Perso{
-    position: absolute;
-    width: 20%;
-    height: 40%;
-    left: 65%;
-    top: 20%;
+
+
+/*
+***************************************************************************************************************************
+***************************************************************************************************************************
+******************************************************** WORKOUT APP CSS **************************************************
+***************************************************************************************************************************
+***************************************************************************************************************************
+*/
+
+#workouts-filter-title {
+    text-transform: uppercase;
+    font-family: 'Pathway Gothic One', Arial, sans-serif;
+    margin-top: 10px;
+    font-size: 25px;
+    font-weight: normal!important;
+    border-bottom: solid;
+    border-width: 1px;
+    border-color: lightgray;
 }
-#Programme_Perso:hover{
-    transform: scale(1.1);
+
+#workouts-global-preview-title {
+    text-transform: uppercase;
+    font-family: 'Pathway Gothic One', Arial, sans-serif;
+    margin-top: 10px;
+    font-weight: normal!important;
+}
+
+.filter-collapse {
+    background-color: lightgray;
+    border-radius: none!important;
+    text-transform: uppercase;
+    font-family: 'Pathway Gothic One', Arial, sans-serif;
+    font-weight: bold;
+    letter-spacing: .2em;
+    font-size: 14px;
+}
+
+.filter-collapse:focus {
+    outline: none;
+    box-shadow:none;
+}
+
+#workouts-filter-container {
+    background-color: #e5e5e5;
+    border: none;
+}
+
+.workout-preview {
+    background: gray;
 }

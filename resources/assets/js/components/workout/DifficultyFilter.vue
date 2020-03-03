@@ -1,18 +1,22 @@
 <template>
-  <div class="card">
-    <h3 class="text-center">Difficulty Filter</h3>
-    <div class="custom-control custom-radio" v-for="radio in radios">
-      <input  class="custom-control-input"
-              :type="type_input"
-              :id="radio.id"
-              :name="name_radio"
-              :value="radio.value"
-              v-model="checked_radio_value"
-              @change="change_filter()">
-      <label class="custom-control-label" v-bind:for="radio.id">
-        {{ radio.label }}
-      </label>
-    </div>
+  <div class="mb-2">
+    <p class="text">
+      <a class="btn text-wrap filter-collapse" data-toggle="collapse" href="#difficulty-filter-collapse" role="button" aria-expanded="false" aria-controls="filter-collapse-control">Difficulty</a>
+      <div class="collapse" id="difficulty-filter-collapse">
+        <div class="custom-control custom-radio" v-for="radio in radios">
+          <input  class="custom-control-input"
+                  :type="type_input"
+                  :id="radio.id"
+                  :name="name_radio"
+                  :value="radio.value"
+                  v-model="checked_radio_value"
+                  @change="change_filter()">
+          <label class="custom-control-label" v-bind:for="radio.id">
+            {{ radio.label }}
+          </label>
+        </div>
+      </div>
+    </p>
   </div>
 </template>
 

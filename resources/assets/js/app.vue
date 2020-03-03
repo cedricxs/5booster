@@ -1,5 +1,7 @@
 <template>
-  <workouts></workouts>
+  <div class="col-10">
+    <workouts></workouts>
+  </div>
 </template>
 
 <script>
