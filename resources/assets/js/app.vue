@@ -1,5 +1,5 @@
 <template>
-  <div class="col-10">
+  <div class="col">
     <workouts></workouts>
   </div>
 </template>

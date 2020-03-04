@@ -13,6 +13,7 @@
     <div id="Programme_Perso" onclick="window.location.href='{{asset('client/prog_perso')}}'">
         <h4>Programme Perso</h4>
         <img src="{{asset('img/finder.png')}}" width="80%" height="80%">
+
     </div>
 
 @endsection

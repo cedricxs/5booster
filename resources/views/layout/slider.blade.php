@@ -32,6 +32,7 @@
                 </ul>
             </nav>
         </div>
+
         <div id="main_container">
             @yield('container')
         </div>

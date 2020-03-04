@@ -9,11 +9,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/style.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Pathway+Gothic+One&display=swap" rel="stylesheet">
-    <script defer src="{{ asset('/js/app.js') }}"></script>
 </head>
 
 <body>
-<div class="container-fluid">
+
     <!-- Header -->
     <header class="container-fluid" id="header_connected">
         <!-- Bar de navigation -->
@@ -45,16 +44,11 @@
     </header>
     <!-- Header -->
 
-    <div class="container-fluid" id="container-connected">
-        <div class="row">
-            @yield('content')
-            <div id="app"></div>
-        </div>
-    </div>
 
-    <!-- Footer -->
+    @yield('content')
 
-    <footer class="footer">
+
+    <footer class="footer_connected">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="collapse navbar-collapse flex-md-column">
                 <ul class="navbar-nav m-auto">
@@ -77,7 +71,7 @@
         </nav>
     </footer>
     <!-- Footer -->
-</div>
+
 
 
 

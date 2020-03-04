@@ -3,12 +3,15 @@ html {
 }
 
 body {
-    /* position: absolute; */
     height: 100%;
     display: flex;
     flex-direction: column;
 }
-
+#header_connected{
+    top: 0;
+    width: 100%;
+    height: 9%;
+}
 footer.home-footer {
     flex-shrink: 0;
 }
@@ -22,16 +25,22 @@ footer.page-footer-connected {
     margin-top: 12vh;
     margin-bottom: 12vh;
 }
-
+#wrapper{
+    top: 10%;
+    width: 15%;
+    height: 73%;
+    position: absolute
+}
 #sidebar {
     /* top: 10%; */
     /* min-width: 200px; */
     /* max-width: 200px; */
-    min-height: 100vh;
+    /*min-height: 100vh;*/
     background: #7386D5;
-    /* position: fixed; */
-}
+    width: 100%;
+    height: 100%;
 
+}
 #sidebar ul.components {
     padding: 20px;
     background: #6d7fcc;
@@ -46,8 +55,58 @@ footer.page-footer-connected {
     color: #7386D5;
     background: #fff;
 }
+#main_container{
+    position: absolute;
+    top: 10%;
+    left: 15%;
+    width: 85%;
+    height: 73%;
+    overflow: auto;
+}
+#centre{
+    top: 10%;
+    width: 100%;
+    height: 73%;
+}
+.footer_connected{
+    position: relative;
+    bottom: 0;
+    width:100%;
+    height: 15%;
+}
+.footer{
+    position: absolute;
+    bottom: 0;
+    width:100%;
+    height: 15%;
+}
 
+/*定义了滚动条整体样式；*/
+::-webkit-scrollbar{
+    height: 28px !important;
+    width: 10px !important;
+}
 
+/*定义了滚动条滑块的样式*/
+::-webkit-scrollbar-thumb {
+    border-radius: 0;
+    border-style: dashed;
+    background-color: rgba(12, 80, 235, 0.4);
+    border-color: #e2242400;
+    border-width: 1.5px;
+    background-clip: padding-box;
+}
+
+/*定义了轨道的样式*/
+
+::-webkit-scrollbar-track {/*滚动条里面轨道*/
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    background: #EDEDED;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(157, 165, 183, 0.7)
+}
 /* -----
 SVG Icons - svgicons.sparkk.fr
 ----- */
@@ -80,7 +139,53 @@ SVG Icons - svgicons.sparkk.fr
     color: rgba(0,0,0,.8);
 }
 
-
+#Programme_Finder{
+    position: absolute;
+    width: 20%;
+    height: 50%;
+    top: 30%;
+    left: 10%;
+}
+#Programme_Finder:hover{
+    transform: scale(1.1);
+}
+#Tendances{
+    position: absolute;
+    width: 20%;
+    height: 50%;
+    top: 30%;
+    left: 40%;
+}
+#Tendances:hover{
+     transform: scale(1.1);
+ }
+#Programme_Perso{
+    position: absolute;
+    width: 20%;
+    height: 50%;
+    top: 30%;
+    left: 70%;
+}
+#Programme_Perso:hover{
+     transform: scale(1.1);
+ }
+.Forget{
+    position: relative;
+    top:40%;
+    left: 25%;
+    width: 50%;
+}
+.Verify{
+    position: relative;
+    top:40%;
+    left: 25%;
+    width: 50%;
+}
+.result_wrap{
+    position: relative;
+    top: 30%;
+    left: 25%;
+}
 /*
 ***************************************************************************************************************************
 ***************************************************************************************************************************
@@ -88,45 +193,45 @@ SVG Icons - svgicons.sparkk.fr
 ***************************************************************************************************************************
 ***************************************************************************************************************************
 */
-
 #workouts-filter-title {
-    text-transform: uppercase;
-    font-family: 'Pathway Gothic One', Arial, sans-serif;
-    margin-top: 10px;
-    font-size: 25px;
-    font-weight: normal!important;
-    border-bottom: solid;
-    border-width: 1px;
-    border-color: lightgray;
+  text-transform: uppercase;
+  font-family: 'Pathway Gothic One', Arial, sans-serif;
+  margin-top: 10px;
+  font-size: 25px;
+  font-weight: normal!important;
+  border-bottom: solid;
+  border-width: 1px;
+  border-color: lightgray;
 }
 
 #workouts-global-preview-title {
-    text-transform: uppercase;
-    font-family: 'Pathway Gothic One', Arial, sans-serif;
-    margin-top: 10px;
-    font-weight: normal!important;
+  text-transform: uppercase;
+  font-family: 'Pathway Gothic One', Arial, sans-serif;
+  margin-top: 10px;
+  font-weight: normal!important;
 }
 
 .filter-collapse {
-    background-color: lightgray;
-    border-radius: none!important;
-    text-transform: uppercase;
-    font-family: 'Pathway Gothic One', Arial, sans-serif;
-    font-weight: bold;
-    letter-spacing: .2em;
-    font-size: 14px;
+  background-color: lightgray;
+  border-radius: none!important;
+  text-transform: uppercase;
+  font-family: 'Pathway Gothic One', Arial, sans-serif;
+  font-weight: bold;
+  letter-spacing: .2em;
+  font-size: 14px;
 }
 
 .filter-collapse:focus {
-    outline: none;
-    box-shadow:none;
+  outline: none;
+  box-shadow:none;
 }
 
 #workouts-filter-container {
-    background-color: #e5e5e5;
-    border: none;
+    right: 2%;
+  background-color: #e5e5e5;
+  border: none;
 }
 
 .workout-preview {
-    background: gray;
+  background: gray;
 }

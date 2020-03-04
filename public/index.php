@@ -8,7 +8,8 @@
  */
 
 define('LARAVEL_START', microtime(true));
-$_ENV['isLocal'] = false;
+$_ENV['isLocal'] = true;
+
 /*
 |--------------------------------------------------------------------------
 | Register The Auto Loader

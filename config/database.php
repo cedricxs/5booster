@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => $_ENV['isLocal'] ? env('DB_CONNECTION', 'mysql'):'mysql',
 
     /*
     |--------------------------------------------------------------------------
@@ -46,11 +46,11 @@ return [
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', '185.98.131.92'),
-            'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', '5boos1240679'),
-            'username' => env('DB_USERNAME', '5boos1240679'),
-            'password' => env('DB_PASSWORD', '260074'),
+            'host' => $_ENV['isLocal'] ? env('DB_HOST', '185.98.131.92') : '185.98.131.92',
+            'port' => $_ENV['isLocal'] ? env('DB_PORT', '3306'):'3306',
+            'database' => $_ENV['isLocal'] ? env('DB_DATABASE', '5boos1240679') : '5boos1240679',
+            'username' => $_ENV['isLocal'] ? env('DB_USERNAME', '5boos1240679'):'5boos1240679',
+            'password' => $_ENV['isLocal'] ? env('DB_PASSWORD', '260074'):'260074',
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',

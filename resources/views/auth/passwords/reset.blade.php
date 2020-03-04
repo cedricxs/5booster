@@ -1,4 +1,4 @@
-@extends('layout.client')
+@extends('layout.home')
 
 @section('content')
 

@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => "https://mybooster.com",
+    'url' =>$_ENV['isLocal'] ? "http://mybooster.com":"https://5booster.com",
 
     'asset_url' => env('ASSET_URL', null),
 
