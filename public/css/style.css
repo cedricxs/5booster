@@ -70,7 +70,7 @@ footer.page-footer-connected {
 }
 .footer_connected{
     position: relative;
-    bottom: 0;
+    bottom: -1%;
     width:100%;
     height: 15%;
 }
@@ -80,7 +80,22 @@ footer.page-footer-connected {
     width:100%;
     height: 15%;
 }
-
+#compte{
+    position: absolute;
+    top: 10%;
+    right: 0;
+    height: 75%;
+    width: 100%;
+    overflow: auto;
+}
+#abonnement{
+    position: absolute;
+    top: 10%;
+    right: 0;
+    height: 75%;
+    width: 100%;
+    overflow: auto;
+}
 /*定义了滚动条整体样式；*/
 ::-webkit-scrollbar{
     height: 28px !important;
@@ -186,6 +201,13 @@ SVG Icons - svgicons.sparkk.fr
     top: 30%;
     left: 25%;
 }
+#payment{
+    position: absolute;
+    width: 30%;
+    height: 30%;
+    top: 20%;
+    left: 30%;
+}
 /*
 ***************************************************************************************************************************
 ***************************************************************************************************************************
@@ -234,4 +256,44 @@ SVG Icons - svgicons.sparkk.fr
 
 .workout-preview {
   background: gray;
+}
+
+
+/**
+ * The CSS shown here will not be introduced in the Quickstart guide, but shows
+ * how you can use CSS to style your Element's container.
+ */
+.StripeElement {
+    box-sizing: border-box;
+
+    height: 40px;
+
+    padding: 10px 12px;
+
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-color: white;
+
+    box-shadow: 0 1px 3px 0 #e6ebf1;
+    -webkit-transition: box-shadow 150ms ease;
+    transition: box-shadow 150ms ease;
+}
+
+.StripeElement--focus {
+    box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--invalid {
+    border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+    background-color: #fefde5 !important;
+}
+#invoice{
+    position: relative;
+    width: 50%;
+    height: 78%;
+    left: 25%;
+    overflow: auto;
 }

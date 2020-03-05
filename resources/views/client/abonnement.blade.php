@@ -2,7 +2,7 @@
 @section('content')
 
 <!-- Content -->
-<div class="container d-flex flex-column">
+<div class="d-flex flex-column" id="abonnement">
   <div class="row m-auto">
     <div class="col-sm">
       <div class="card text-center" style="width: 18rem;">
@@ -17,7 +17,7 @@
             <li class="list-group-item">Option 3</li>
           </ul>
           <div class="card-body">
-            <a href="#" class="card-link">S'abonner</a>
+            <a href="{{url('client/abonner/free')}}" class="card-link">S'abonner</a>
           </div>
         </div>
     </div>
@@ -35,7 +35,7 @@
             <li class="list-group-item">Option 4</li>
           </ul>
           <div class="card-body">
-            <a href="#" class="card-link">S'abonner</a>
+            <a href="{{url('client/abonner/boost')}}" class="card-link">S'abonner</a>
           </div>
         </div>
     </div>
@@ -55,12 +55,11 @@
             <li class="list-group-item">Option 6</li>
           </ul>
           <div class="card-body">
-            <a href="#" class="card-link">S'abonner</a>
+            <a href="{{url('client/abonner/max_boost')}}" class="card-link">S'abonner</a>
           </div>
         </div>
     </div>
   </div>
 </div>
 <!-- Content -->
-
 @endsection

@@ -4,8 +4,11 @@
 namespace App\Http\Controllers\client;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Model\User;
+use Stripe\Stripe;
 
 class IndexController extends Controller
 {
@@ -20,7 +23,7 @@ class IndexController extends Controller
         return view('client.compte')->with('user',$user);
     }
 
-    public function abonnement(){
+    public function abonnement(Request $request){
         return view('client.abonnement');
     }
 
@@ -59,5 +62,53 @@ class IndexController extends Controller
     public function prog_perso()
     {
         return view('client.prog_perso');
+    }
+
+    public function ajouter_payment(Request $request)
+    {
+        $user = $request->user();
+        //        dd($user->paymentMethods());
+
+//        dd($user->paymentMethods());
+//        if(isset($user)){
+//            $stripeCustomer = $user->createOrGetStripeCustomer();
+//            return $stripeCustomer;
+//        }
+
+        return view('update-payment-method', [
+            'intent' => $user->createSetupIntent(),
+        ]);
+
+    }
+
+    public function abonner($abonnement, Request $request)
+    {
+//        if(!$request->user()->hasPaymentMethod()){
+//            return redirect('/client/ajoute_payment');
+//        }
+        return view('payment.payment_once',[
+            'abonnement' => $abonnement,
+        ]);
+    }
+
+    public function succeeded(Request $request)
+    {
+        $user = $request->user();
+        $invs = $user->invoices();
+        $inv = $invs[0];
+        //$items = $invs[0]->lines['data'];
+        return view('payment.succeeded',['inv'=>$inv]);
+    }
+    public function failed()
+    {
+        return view('payment.failed');
+    }
+
+    public function invoice($invoice_id, Request $request)
+    {
+        return $request->user()->downloadInvoice($invoice_id, [
+            'vendor' => '5booster',
+            'product' => 'boost',
+        ]);
     }
 }

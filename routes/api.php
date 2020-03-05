@@ -17,3 +17,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::get('/workouts','ApiController@getWorkouts');
+Route::post('/setupIntent','ApiController@setupIntent');
+Route::post('/abonner','ApiController@abonner');

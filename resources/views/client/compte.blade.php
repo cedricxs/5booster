@@ -2,7 +2,7 @@
 @section('content')
 <!-- Contenu -->
 
-<div class="container d-flex flex-column">
+<div class="d-flex flex-column" id="compte">
   <div class="card">
     <div class="card-body">
       <div class="row m-auto">

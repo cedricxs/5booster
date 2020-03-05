@@ -29,7 +29,11 @@ Route::group(['prefix'=>'client','namespace'=>'client','middleware'=>['web','aut
     Route::get('/rdv','IndexController@rdv');
     Route::get('/formulaire','IndexController@formulaire');
     Route::get('/abonnement','IndexController@abonnement');
-
+    Route::get('/ajouter_payment','IndexController@ajouter_payment');
+    Route::get('/abonner/{abonnement}','IndexController@abonner');
+    Route::get('/payment/succeeded','IndexController@succeeded');
+    Route::get('/payment/failed','IndexController@failed');
+    Route::get('/invoice/{invoice_id}','IndexController@invoice');
 });
 
 Auth::routes(['verify'=>true]);
