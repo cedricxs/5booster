@@ -14,5 +14,8 @@ const mix = require('laravel-mix');
 // mix.js('resources/js/app.js', 'public/js')
 //     .sass('resources/sass/app.scss', 'public/css');
 
-mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
+mix.js('resources/assets/js/app-workout.js', 'public/js')
+    .sass('resources/assets/sass/app-workout.scss', 'public/css');
+
+mix.js('resources/assets/js/app-recette.js', 'public/js')
+    .sass('resources/assets/sass/app-recette.scss', 'public/css');

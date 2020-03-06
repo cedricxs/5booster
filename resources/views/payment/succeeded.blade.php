@@ -1,5 +1,6 @@
 @extends('layout.client')
 @section('content')
+    <div id="invoice_container">
     <div id="invoice">
     <link rel="stylesheet" href="https://b.stripecdn.com/manage/assets/app.manage-923edbe92fb37e72c104f2c41c6dc27d.css">
     <link rel="stylesheet" href="https://b.stripecdn.com/manage/assets/app.manage.new_css-e22b30c87ca70d28bab51318259003df.css">
@@ -133,6 +134,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
     </div>
     </div>

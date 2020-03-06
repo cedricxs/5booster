@@ -17,7 +17,8 @@
             <li class="list-group-item">Option 3</li>
           </ul>
           <div class="card-body">
-            <a href="{{url('client/abonner/free')}}" class="card-link">S'abonner</a>
+              <div class="check-style-unequal-width"></div>
+{{--            <a href="{{url('client/abonner/free')}}" class="card-link">Yes</a>--}}
           </div>
         </div>
     </div>
@@ -35,7 +36,11 @@
             <li class="list-group-item">Option 4</li>
           </ul>
           <div class="card-body">
-            <a href="{{url('client/abonner/boost')}}" class="card-link">S'abonner</a>
+              @if($user->subscribed('boost') || $user->subscribed('max_boost'))
+                  <div class="check-style-unequal-width"></div>
+              @else
+                    <a href="{{url('client/abonner/boost')}}" class="card-link">S'abonner</a>
+              @endif
           </div>
         </div>
     </div>
@@ -55,7 +60,11 @@
             <li class="list-group-item">Option 6</li>
           </ul>
           <div class="card-body">
-            <a href="{{url('client/abonner/max_boost')}}" class="card-link">S'abonner</a>
+              @if($user->subscribed('max_boost'))
+                  <div class="check-style-unequal-width"></div>
+              @else
+                  <a href="{{url('client/abonner/max_boost')}}" class="card-link">S'abonner</a>
+              @endif
           </div>
         </div>
     </div>

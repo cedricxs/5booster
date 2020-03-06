@@ -4,10 +4,12 @@
 namespace App\Http\Controllers\client;
 
 use App\Http\Controllers\Controller;
+use App\Mail\Contact_Coach;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Model\User;
+use Illuminate\Support\Facades\Mail;
 use Stripe\Stripe;
 
 class IndexController extends Controller
@@ -24,7 +26,8 @@ class IndexController extends Controller
     }
 
     public function abonnement(Request $request){
-        return view('client.abonnement');
+        $user = $request->user();
+        return view('client.abonnement',['user'=>$user]);
     }
 
     public function sport(){
@@ -47,10 +50,6 @@ class IndexController extends Controller
     {
         return view('client.coach');
     }
-    public function rdv()
-    {
-        return view('client.rdv');
-    }
     public function formulaire()
     {
         return view('client.formulaire');
@@ -64,6 +63,15 @@ class IndexController extends Controller
         return view('client.prog_perso');
     }
 
+    public function contact_coach(Request $request)
+    {
+        $subject = $request['subject'];
+        $content = $request['content'];
+        $user = $request->user();
+        $message = new Contact_Coach($subject, $content,$user);
+        Mail::to(config('mail.coach'))->send($message);
+        return back()->with('msg','You have sent the email to the coach.');
+    }
     public function ajouter_payment(Request $request)
     {
         $user = $request->user();
@@ -86,6 +94,9 @@ class IndexController extends Controller
 //        if(!$request->user()->hasPaymentMethod()){
 //            return redirect('/client/ajoute_payment');
 //        }
+        if($abonnement == 'free'){
+            return back();
+        }
         return view('payment.payment_once',[
             'abonnement' => $abonnement,
         ]);

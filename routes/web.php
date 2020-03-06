@@ -26,7 +26,6 @@ Route::group(['prefix'=>'client','namespace'=>'client','middleware'=>['web','aut
     Route::get('/recettes','IndexController@recettes');
     Route::get('/perso','IndexController@perso');
     Route::get('/coach','IndexController@coach');
-    Route::get('/rdv','IndexController@rdv');
     Route::get('/formulaire','IndexController@formulaire');
     Route::get('/abonnement','IndexController@abonnement');
     Route::get('/ajouter_payment','IndexController@ajouter_payment');
@@ -34,6 +33,7 @@ Route::group(['prefix'=>'client','namespace'=>'client','middleware'=>['web','aut
     Route::get('/payment/succeeded','IndexController@succeeded');
     Route::get('/payment/failed','IndexController@failed');
     Route::get('/invoice/{invoice_id}','IndexController@invoice');
+    Route::post('/contact_coach','IndexController@contact_coach');
 });
 
 Auth::routes(['verify'=>true]);

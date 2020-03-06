@@ -2,23 +2,47 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fba3cf10-2f1b-4db9-aa24-9a5dbf3e8067" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/payment/failed.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/payment/payment_once.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/payment/succeeded.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/update-payment-method.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Mail/Contact_Coach.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/app-workout.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/app-recette.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/app-workout.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/assets/js/app-recette.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/assets/js/app-recette.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/assets/js/app-workout.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/assets/js/components/recette/DietFilter.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/assets/js/components/recette/Filter.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/assets/js/components/recette/RecettePreview.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/assets/js/components/recette/Recettes.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/assets/js/components/recette/RepasFilter.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/assets/sass/app-recette.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/assets/sass/app-workout.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/text/button.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/text/footer.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/text/header.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/text/layout.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/text/message.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/text/panel.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/text/promotion.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/text/promotion/button.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/text/subcopy.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/text/table.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ApiController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/client/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/client/IndexController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/cashier.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/session.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/session.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/mail.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/mail.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/js/app.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/js/app.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/js/app-workout.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app-recette.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/client/abonnement.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/client/abonnement.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/client/compte.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/client/compte.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layout/client.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/client.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/client/coach.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/client/coach.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/client/filtre.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/client/filtre.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/client/recettes.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/client/recettes.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layout/slider.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/slider.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/payment/succeeded.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/payment/succeeded.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -154,25 +178,30 @@
       <path value="$PROJECT_DIR$/vendor/sabberworm/php-css-parser" />
       <path value="$PROJECT_DIR$/vendor/league/commonmark" />
       <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/vendor/erusev/parsedown" />
     </include_path>
   </component>
   <component name="ProjectId" id="1XP48rOfrGDmta9a4ocnGyQQ5Ff" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/img" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\97958\5booster\resources\views" />
+      <recent name="C:\Users\97958\5booster\resources\assets\js\components" />
+      <recent name="C:\Users\97958\5booster\resources\assets\js" />
+      <recent name="C:\Users\97958\5booster\resources\assets\sass" />
+      <recent name="C:\Users\97958\5booster\public\css" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\97958\5booster\resources\views\payment" />
       <recent name="C:\Users\97958\5booster\resources\views" />
       <recent name="C:\Users\97958\5booster\resources\views\auth" />
       <recent name="C:\Users\97958\5booster\public" />
       <recent name="C:\Users\97958\5booster\resources" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\97958\5booster\public\img" />
     </key>
   </component>
   <component name="RunDashboard">

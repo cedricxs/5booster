@@ -24,9 +24,6 @@
                         <a class="nav-link" href="{{url('client/coach')}}" id="coach">Mon Coach</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('client/rdv')}}" id="rdv">Point de rdv</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="{{url('client/formulaire')}}" id="formulaire">Formulaire</a>
                     </li>
                 </ul>
