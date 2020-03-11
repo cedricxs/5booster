@@ -16,7 +16,7 @@ Route::middleware(['web','guest'])->get('/','IndexController@index');
 
 Route::middleware('web')->get('/history','IndexController@history');
 
-Route::group(['prefix'=>'client','namespace'=>'client','middleware'=>['web','auth']],function (){
+Route::group(['prefix'=>'client','namespace'=>'Client','middleware'=>['web','auth']],function (){
     Route::get('/','IndexController@client');
     Route::get('/espace','IndexController@espace');
     Route::get('/sport','IndexController@sport');
@@ -34,11 +34,22 @@ Route::group(['prefix'=>'client','namespace'=>'client','middleware'=>['web','aut
     Route::get('/payment/failed','IndexController@failed');
     Route::get('/invoice/{invoice_id}','IndexController@invoice');
     Route::post('/contact_coach','IndexController@contact_coach');
+    Route::get('/payer/alipay','IndexController@alipay');
+    Route::get('/payer/allPaymentMethod',function (\Illuminate\Http\Request $request){
+        //$request->user()->deletePaymentMethods();
+           dd($request->user()->paymentMethods());
+           dd('no');
+    });
 });
-
+Route::middleware('web')->post('/payer/alipay','Client\IndexController@alipay_ready');
 Auth::routes(['verify'=>true]);
 
+Route::group(['prefix'=>'admin','middleware'=>['web','auth','admin'], 'namespace'=>'Admin'], function (){
+    Route::get('/','IndexController@index');
+    Route::resource('/workouts','WorkoutController');
 
+});
+Route::get('/workout/{id}','Client\WorkoutController@getById');
 
 Route::get('ex',function(){
     return view('example');

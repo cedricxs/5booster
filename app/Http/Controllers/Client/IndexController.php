@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Http\Controllers\client;
+namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
 use App\Mail\Contact_Coach;
@@ -121,5 +121,24 @@ class IndexController extends Controller
             'vendor' => '5booster',
             'product' => 'boost',
         ]);
+    }
+
+    public function alipay(Request $request)
+    {
+        return view('payment.alipay',['amount'=>1500,
+            'currency'=>config('cashier.currency'),
+            'redirect_url'=>url('/client/payment/succeeded')]);
+    }
+
+    public function alipay_ready(Request $request)
+    {
+//        $user = $request->user();
+//        $user->chargeWithSource($request['amount'], $request['source']);
+        $source = $request;
+        $email = $source['email'];
+        $user = User::where('email',$email)->first();
+        $amount = $source['amount'];
+        $source_id = $source['id'];
+        $user->chargeWithSource($amount, $source_id);
     }
 }

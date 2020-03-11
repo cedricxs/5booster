@@ -416,6 +416,11 @@ __webpack_require__.r(__webpack_exports__);
   props: ['workout'],
   data: function data() {
     return {};
+  },
+  methods: {
+    getWorkoutHref: function getWorkoutHref(val) {
+      return 'http://mybooster.com/workout/' + val;
+    }
   }
 });
 
@@ -1579,8 +1584,10 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "col-md-12 card mb-4" }, [
-    _c("h4", { staticClass: "text-center" }, [
-      _vm._v(_vm._s(_vm.workout.title))
+    _c("a", { attrs: { href: _vm.getWorkoutHref(_vm.workout.id) } }, [
+      _c("h4", { staticClass: "text-center" }, [
+        _vm._v(_vm._s(_vm.workout.title))
+      ])
     ]),
     _vm._v(" "),
     _c("p", { staticClass: "text-center" }, [

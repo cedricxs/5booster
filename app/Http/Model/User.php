@@ -3,6 +3,7 @@
     use Illuminate\Notifications\Notifiable;
     use Illuminate\Foundation\Auth\User as Authenticatable;
     use Laravel\Cashier\Billable;
+    use Stripe\Charge;
     class User extends Authenticatable{
 
         use Billable;
@@ -15,7 +16,7 @@
         protected $fillable = [
             'user_id', 'username', 'password',
             'telephone','birthday','sex','email',
-            'remember_token','email_verified_at',
+            'remember_token','email_verified_at','isAdmin',
         ];
 
         /**
@@ -30,4 +31,14 @@
         protected $primaryKey = 'user_id';
         //public $timestamps = false;
         protected $table = 'users';
+
+        public function chargeWithSource($amount, $source_id, array $options = []){
+            $options = array_merge([
+                'currency' => $this->preferredCurrency(),
+            ], $options);
+            $options['amount'] = $amount;
+            $options['source'] = $source_id;
+            $charge = Charge::create($options, $this->stripeOptions());
+
+        }
     }
