@@ -4,9 +4,9 @@
     <div class="card text-white bg-info mb-3" style="max-width: 18rem;left: 30%;top:10%">
         <div class="card-header">5Booster</div>
         <div class="card-body">
-            <h5 data-i18n="success-submit-questionnaire" class="card-title"></h5>
-            <p data-i18n="wait-further-information" class="card-text"></p>
-            <a data-i18n="click-here-redo-questionnaire" href="{{url('client/reset_questionnaire')}}" style="color: #0056b3"><p class="card-text"></p></a>
+            <h5  class="card-title">@lang('message.success-submit-questionnaire') </h5>
+            <p  class="card-text">@lang('message.wait-further-information') </p>
+            <a   href="{{url('client/reset_questionnaire')}}" style="color: #0056b3"><p class="card-text">@lang('message.click-here-redo-questionnaire')</p></a>
         </div>
     </div>
 @else

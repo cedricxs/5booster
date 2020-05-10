@@ -13,10 +13,10 @@
 
             {{csrf_field()}}
             <div class="form-group" id="mail">
-                <input type="email" class="form-control" placeholder="Adresse mail" name="email"/>
+                <input type="email" class="form-control" placeholder="@lang('message.email')" name="email"/>
             </div>
             <div class="text-right">
-                <button type="submit" class="btn btn-primary">Envoyer</button>
+                <button type="submit" class="btn btn-primary">@lang('message.envoyer')</button>
             </div>
         </form>
 

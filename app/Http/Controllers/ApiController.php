@@ -10,6 +10,7 @@ use http\Cookie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use  Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\App;
 
 class ApiController extends Controller
 {
@@ -57,8 +58,10 @@ class ApiController extends Controller
 
     public function change_locale(Request $request)
     {
-        $cookie = cookie('locale',$request['locale'],60*24);
-        return Response::json(['status'=>'ok'])->withCookie($cookie);
+        //这里setlocale不起作用,只限于当此请求的runtime,无记忆
+        App::setLocale($request['locale']);
+        $cookie = cookie('locale',$request['locale'],24*60);
+        return Response::json(['status'=>$request['locale']])->withCookie($cookie);
     }
 
 }

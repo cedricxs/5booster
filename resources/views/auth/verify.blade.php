@@ -4,7 +4,7 @@
 
     @if(Session::has('resent'))
         @if(Session::get('resent'))
-            <p>we have sent the verify message to your email</p>
+            <p>@lang('message.we-have-sent-email')</p>
         @endif
     @endif
 
@@ -15,10 +15,10 @@
 
             {{csrf_field()}}
             <div class="form-group" id="mail">
-                <input type="email" class="form-control" placeholder="Adresse mail" name="email"/>
+                <input type="email" class="form-control" placeholder="@lang('message.email')" name="email"/>
             </div>
             <div class="text-right">
-                <button type="submit" class="btn btn-primary">Verifier</button>
+                <button type="submit" class="btn btn-primary">@lang('message.verifier')</button>
             </div>
         </form>
 

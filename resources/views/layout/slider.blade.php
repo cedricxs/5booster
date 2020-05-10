@@ -12,19 +12,19 @@
             <nav id="sidebar">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a data-i18n="sport" class="nav-link" href="{{url('client/sport')}}" id="sport"></a>
+                        <a class="nav-link" href="{{url('client/sport')}}" id="sport">@lang('message.sport')</a>
                     </li>
                     <li class="nav-item">
-                        <a data-i18n="recettes" class="nav-link" href="{{url('client/recettes')}}" id="recettes"></a>
+                        <a class="nav-link" href="{{url('client/recettes')}}" id="recettes">@lang('message.recettes')</a>
                     </li>
                     <li class="nav-item">
-                        <a data-i18n="developpement-perso" class="nav-link" href="{{url('client/perso')}}" id="perso"></a>
+                        <a class="nav-link" href="{{url('client/perso')}}" id="perso">@lang('message.developpement-perso')</a>
                     </li>
                     <li class="nav-item">
-                        <a data-i18n="mon-coach" class="nav-link" href="{{url('client/coach')}}" id="coach"></a>
+                        <a  class="nav-link" href="{{url('client/coach')}}" id="coach">@lang('message.mon-coach')</a>
                     </li>
                     <li class="nav-item">
-                        <a data-i18n="formulaire" class="nav-link" href="{{url('client/formulaire')}}" id="formulaire"></a>
+                        <a class="nav-link" href="{{url('client/formulaire')}}" id="formulaire"> @lang('message.formulaire')</a>
                     </li>
                 </ul>
             </nav>

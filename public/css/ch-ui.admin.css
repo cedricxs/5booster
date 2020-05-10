@@ -20,7 +20,8 @@
     left: 15%;
     width: 85%;
     height: 76.5%;
-    display:inline
+    display:inline;
+    overflow: auto;
 
 }
 .admin_footer{

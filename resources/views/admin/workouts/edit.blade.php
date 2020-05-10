@@ -6,18 +6,10 @@
     <div class="result_wrap">
         <div class="result_title">
             <h3>edit workout</h3>
-            @if(count($errors)>0)
+            @if(session('msg'))
                 <div class="mark">
-                    @if(is_object($errors))
-                        @foreach($errors->all() as $error)
-                            <p>{{$error}}</p>
-                        @endforeach
-                    @else
-                        <p>{{$errors}}</p>
-                    @endif
-
+                    {{session('msg')}}
                 </div>
-
             @endif
         </div>
         <div class="result_content">

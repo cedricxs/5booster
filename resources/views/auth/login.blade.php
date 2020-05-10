@@ -15,19 +15,19 @@
                 <form class="right" method="post" action="{{url('/login')}}">
                     <input type="hidden" name="_token" value="LAd6l5BdPY3aWyCrWYTBeMvCc04OQdFx8a3hIbiP">
                     <div class="form-group" id="username">
-                        <input name="email" class="form-control" aria-describedby="emailHelp" placeholder="E-mail">
+                        <input name="email" class="form-control" aria-describedby="emailHelp" placeholder="@lang('message.email')">
                     </div>
                     <div class="form-group" id="password">
-                        <input name="password" type="password" class="form-control" placeholder="Mot de passe">
-                        <a href="{{url('password/reset')}}"><small id="emailHelp" class="nav-link">Mot de passe oublié ?</small></a>
+                        <input name="password" type="password" class="form-control" placeholder="@lang('message.mdp')">
+                        <a href="{{url('password/reset')}}"><small id="emailHelp" class="nav-link">@lang('message.mdp-oublier')</small></a>
                     </div>
                     <div class="text-right">
-                        <button type="submit" class="btn btn-primary">Connexion</button>
+                        <button type="submit" class="btn btn-primary">@lang('message.connexion')</button>
                     </div>
 
                     <span style="display:inline-block">
                         <input type="checkbox" name="remember" />
-                        <small id="emailHelp" class="form-text text-muted">Se souvenir de moi</small>
+                        <small id="emailHelp" class="form-text text-muted">@lang('message.souvenir-moi')</small>
                     </span>
                 </form>
                 @if(session('msg'))

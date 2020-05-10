@@ -48,7 +48,7 @@ class RecetteController extends Controller
         $file->storeAs('recettes/', $filename);
         $data['url_recette'] = '\app\recettes\\'.$filename;
         Recette::create($data);
-        return back()->with('errors','add the recette successfully');
+        return back()->with('msg','add the recette successfully');
     }
 
     public function edit($recette_id, Request $request)
@@ -77,6 +77,6 @@ class RecetteController extends Controller
             $data['url_recette'] = '\app\recettes\\'.$filename;
         }
         $recette->update($data);
-        return back()->with('errors','update the recette successfully');
+        return back()->with('msg','update the recette successfully');
     }
 }

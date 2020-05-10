@@ -64,7 +64,7 @@ class WorkoutController extends Controller
         $file->storeAs('workouts/', $filename);
         $data['url_workout'] = '\app\workouts\\'.$filename;
         Workout::create($data);
-        return back()->with('errors','add the workout successfully');
+        return back()->with('msg','add the workout successfully');
     }
 
     public function edit($workout_id, Request $request)
@@ -92,6 +92,6 @@ class WorkoutController extends Controller
             $data['url_workout'] = '\app\workouts\\'.$filename;
         }
         $workout->update($data);
-        return back()->with('errors','update the workout successfully');
+        return back()->with('msg','update the workout successfully');
     }
 }
