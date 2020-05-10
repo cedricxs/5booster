@@ -12,19 +12,19 @@
             <nav id="sidebar">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('client/sport')}}" id="sport">Sport</a>
+                        <a data-i18n="sport" class="nav-link" href="{{url('client/sport')}}" id="sport"></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('client/recettes')}}" id="recettes">Recettes</a>
+                        <a data-i18n="recettes" class="nav-link" href="{{url('client/recettes')}}" id="recettes"></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('client/perso')}}" id="perso">Développement Perso.</a>
+                        <a data-i18n="developpement-perso" class="nav-link" href="{{url('client/perso')}}" id="perso"></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('client/coach')}}" id="coach">Mon Coach</a>
+                        <a data-i18n="mon-coach" class="nav-link" href="{{url('client/coach')}}" id="coach"></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('client/formulaire')}}" id="formulaire">Formulaire</a>
+                        <a data-i18n="formulaire" class="nav-link" href="{{url('client/formulaire')}}" id="formulaire"></a>
                     </li>
                 </ul>
             </nav>

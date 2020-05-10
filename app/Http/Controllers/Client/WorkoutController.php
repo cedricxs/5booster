@@ -15,4 +15,17 @@ class WorkoutController extends Controller
         $workout->addView();
         return view('workout.view',['workout'=>$workout]);
     }
+
+
+    public function download($id, Request $request)
+    {
+        $workout = Workout::find($id);
+        $title = $workout->title;
+
+        //PDF file is stored under project/storage/app/workouts/info.pdf
+        $file_path = storage_path().$workout->url_workout;
+        $extension = pathinfo($workout->url_workout, PATHINFO_EXTENSION);
+
+        return response()->download($file_path, "$title.$extension");
+    }
 }

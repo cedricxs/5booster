@@ -21,6 +21,7 @@ class CreateWorkoutsTable extends Migration
             $table->string('focus');
             $table->string('type');
             $table->string('difficulty');
+            $table->integer('view');
         });
     }
 

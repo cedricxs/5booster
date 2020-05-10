@@ -8,13 +8,13 @@
       <div class="row m-auto">
         <div class="col-sm">
           <div class="card">
-            <div class="card-header">
+            <div data-i18n="coordonnees" class="card-header">
               Coordonnées
             </div>
             <div class="card-body">
               <div class="row m-auto">
                 <div class="col-sm">
-                  <p> Téléphone </p>
+                  <p data-i18n="telephone"> Téléphone </p>
                 </div>
                 <div class="col-sm">
                   <p> {{$user->telephone}} </p>
@@ -33,7 +33,7 @@
                   <p> Google </p>
                 </div>
                 <div class="col-sm">
-                  <p> Non connecté </p>
+                  <p data-i18n="non-connecte"> Non connecté </p>
                 </div>
               </div>
               <div class="row m-auto">
@@ -46,9 +46,9 @@
               </div>
             </div>
           </div>
-          <a href="{{url('/password/reset')}}" class="btn btn-primary stretched-link">Modifier le mot de passe</a>
+          <a data-i18n="modifier-mdp" href="{{url('/password/reset')}}" class="btn btn-primary">Modifier le mot de passe</a>
             @if(!$user->hasVerifiedEmail())
-                <a href="{{url('/email/verify')}}" class="btn btn-primary stretched-link">Verifier votre e-mail</a>
+                <a data-i18n="verifier-email" href="{{url('/email/verify')}}" class="btn btn-primary">Verifier votre e-mail</a>
             @endif
         </div>
         <div class="col-sm" align="center">
@@ -60,13 +60,13 @@
       <div class="row m-auto">
         <div class="col-sm">
           <div class="card">
-            <div class="card-header">
+            <div data-i18n="information-generale" class="card-header">
               Informations générales
             </div>
             <div class="card-body">
               <div class="row m-auto">
                 <div class="col-sm">
-                  <p> Pseudonyme </p>
+                  <p data-i18n="pseudonyme"> Pseudonyme </p>
                 </div>
                 <div class="col-sm">
                   <p> {{$user->username}} </p>
@@ -74,7 +74,7 @@
               </div>
               <div class="row m-auto">
                 <div class="col-sm">
-                  <p> Date de naissance </p>
+                  <p data-i18n="date-naissance"> Date de naissance </p>
                 </div>
                 <div class="col-sm">
                   <p> {{$user->birthday}} </p>
@@ -86,7 +86,7 @@
                   <p> Genre </p>
                 </div>
                 <div class="col-sm">
-                  <p> {{$user->sex}} </p>
+                  <p data-i18n="{{$user->sex}}"> {{$user->sex}} </p>
                 </div>
               </div>
             </div>
@@ -94,7 +94,7 @@
         </div>
         <div class="col-sm mt-auto" align="right">
             <form method="post" action="/logout">
-                <button type="submit" class="btn btn-danger">Deconnecter</button>
+                <button data-i18n="deconnecter" type="submit" class="btn btn-danger">Deconnecter</button>
             </form>
 
         </div>

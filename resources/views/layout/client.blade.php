@@ -11,6 +11,13 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/style.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Pathway+Gothic+One&display=swap" rel="stylesheet">
+    <script src="{{asset('/i18n/jquery.i18n.js')}}"></script>
+    <script src="{{asset('/i18n/jquery.i18n.messagestore.js')}}"></script>
+    <script src="{{asset('/i18n/jquery.i18n.fallbacks.js')}}"></script>
+    <script src="{{asset('/i18n/jquery.i18n.language.js')}}"></script>
+    <script src="{{asset('/i18n/jquery.i18n.parser.js')}}"></script>
+    <script src="{{asset('/i18n/jquery.i18n.emitter.js')}}"></script>
+    <script src="{{asset('/i18n/jquery.i18n.emitter.bidi.js')}}"></script>
 </head>
 
 <body>
@@ -27,10 +34,17 @@
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('/client/espace')}}">Mon Compte</a>
+                        <select id="language" class="nav-link" style="border-width: 0px;background-color:rgba(0, 0, 0, 0)">
+                            <option value ="fr">Française</option>
+                            <option value ="en">English</option>
+                            <option value ="zh-CN">中文</option>
+                        </select>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('/client/abonnement')}}">Mon abonnement</a>
+                        <a data-i18n="mon-Compte" class="nav-link" href="{{url('/client/espace')}}"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a data-i18n="mon-Abonnement" class="nav-link" href="{{url('/client/abonnement')}}"></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('/client/espace')}}">
@@ -49,19 +63,19 @@
 
     @yield('content')
 
-
+    <!-- Footer -->
     <footer class="footer">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="collapse navbar-collapse flex-md-column">
                 <ul class="navbar-nav m-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">A propos</a>
+                        <a data-i18n="a-Propos" class="nav-link" href="#">A propos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Connexion</a>
+                        <a data-i18n="Connexion" class="nav-link" href="#">Connexion</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Mentions légales</a>
+                        <a data-i18n="mentions-Legales" class="nav-link" href="#">Mentions légales</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav m-auto">
@@ -74,9 +88,28 @@
     </footer>
     <!-- Footer -->
 
-
-
-
-<!-- <script type="text/javascript" src="js/script.js"></script> -->
 </body>
+<script>
+    let locale = navigator.language
+    @if(request()->cookie('locale'))
+        locale = '{{request()->cookie('locale')}}'
+    @endif
+    $.i18n().load({
+        'fr' : '{{asset("languages/fr.json")}}',
+        'en' : '{{asset("languages/en.json")}}',
+        'zh-CN':'{{asset("languages/zh-CN.json")}}'
+    }).done(function () {
+        /*If the default locale was not set in any of these two ways, the library will try to get the language setting passed by the browser. Internally the default language is set to English. To avoid any unexpected behaviour it is recommended to set the default locale explicitly.*/
+        updateLanguage(locale)
+    })
+
+    //console.log($.i18n().locale);
+</script>
+<script>
+    $('#language').change(function (event) {
+        lang = $('#language').val()
+        updateLanguage(lang)
+        post_language(lang)
+    })
+</script>
 </html>

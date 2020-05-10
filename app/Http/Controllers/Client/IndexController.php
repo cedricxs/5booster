@@ -4,7 +4,9 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
+use App\Http\Model\Post_Questionnaire;
 use App\Mail\Contact_Coach;
+use  Illuminate\Support\Facades\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
@@ -16,7 +18,7 @@ class IndexController extends Controller
 {
     public function client()
     {
-        return view('client.index');
+        return view('client.sport');
     }
 
     public function espace()
@@ -50,9 +52,14 @@ class IndexController extends Controller
     {
         return view('client.coach');
     }
-    public function formulaire()
+    public function formulaire(Request $request)
     {
-        return view('client.formulaire');
+        $data = [
+            'has_submit_questionnaire' => $request->user()->questionnaire,
+            'redo_questionnaire' => false
+        ];
+        return view('client.formulaire')->with('has_submit_questionnaire',$data['has_submit_questionnaire'])
+            ->with('redo_questionnaire',$data['redo_questionnaire']);
     }
     public function tendances()
     {
@@ -72,10 +79,50 @@ class IndexController extends Controller
         Mail::to(config('mail.coach'))->send($message);
         return back()->with('msg','You have sent the email to the coach.');
     }
+
+    public function post_questionnaire(Request $request)
+    {
+        $data = $request->all();
+        foreach ($data as $question_id=>$answer) {
+            $post = [
+                'question_id'=>str_replace('question_','',$question_id),
+                'user_id'=>$request->user()->user_id,
+                'answer'=>$answer
+            ];
+            $exist = Post_Questionnaire::where(['user_id'=>$post['user_id'],'question_id'=>$post['question_id']])->get();
+            if($exist->isEmpty())
+                Post_Questionnaire::create($post);
+            else{
+                foreach ($exist as $exist){
+                    $exist->answer = $post['answer'];
+                    $exist->save();
+                }
+            }
+
+        }
+        $user = $request->user();
+        $user->questionnaire = true;
+        $user->save();
+
+        return Response::json(['msg'=>'ok']);
+    }
+
+    public function reset_questionnaire(Request $request)
+    {
+        $all_posts = Post_Questionnaire::where('user_id',"=",$request->user()->user_id)->get();
+        $data = [
+            'has_submit_questionnaire' => $request->user()->questionnaire,
+            'redo_questionnaire' => true,
+            'all_posts'=>$all_posts
+        ];
+        return view('client.formulaire')->with('has_submit_questionnaire',$data['has_submit_questionnaire'])
+            ->with('redo_questionnaire',$data['redo_questionnaire'])
+            ->with('all_posts',$data['all_posts']);
+    }
+
     public function ajouter_payment(Request $request)
     {
         $user = $request->user();
-        //        dd($user->paymentMethods());
 
 //        dd($user->paymentMethods());
 //        if(isset($user)){
@@ -97,7 +144,10 @@ class IndexController extends Controller
         if($abonnement == 'free'){
             return back();
         }
-        return view('payment.payment_once',[
+        if($request->user()->subscribed($abonnement)){
+            return back();
+        }
+        return view('payment.payment_abonner',[
             'abonnement' => $abonnement,
         ]);
     }
@@ -127,18 +177,20 @@ class IndexController extends Controller
     {
         return view('payment.alipay',['amount'=>1500,
             'currency'=>config('cashier.currency'),
-            'redirect_url'=>url('/client/payment/succeeded')]);
+            'redirect_url'=>url('/client/payer/alipay_ready')]);
     }
 
+    //此处应为webhook
     public function alipay_ready(Request $request)
     {
 //        $user = $request->user();
 //        $user->chargeWithSource($request['amount'], $request['source']);
         $source = $request;
         $email = $source['email'];
-        $user = User::where('email',$email)->first();
-        $amount = $source['amount'];
-        $source_id = $source['id'];
+        $user = User::first();
+        $amount = $source['amount']??1500;
+        $source_id = $source['source'];
         $user->chargeWithSource($amount, $source_id);
     }
+
 }

@@ -17,5 +17,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::get('/workouts','ApiController@getWorkouts');
+Route::get('/recettes','ApiController@getRecettes');
+Route::get('/questionnaire','ApiController@getQuestionnaire');
 Route::post('/setupIntent','ApiController@setupIntent');
 Route::post('/abonner','ApiController@abonner');
+Route::post('/change_locale','ApiController@change_locale');

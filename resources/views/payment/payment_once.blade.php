@@ -33,7 +33,7 @@
 
                 }
             );
-
+    console.log(paymentMethod);
             if (error) {
                 // 错误信息
             } else {
@@ -60,4 +60,4 @@
     </script>
 
 
-    @endsection
+@endsection

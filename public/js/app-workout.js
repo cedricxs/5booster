@@ -419,7 +419,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     getWorkoutHref: function getWorkoutHref(val) {
-      return 'http://mybooster.com/workout/' + val;
+      return 'http://mybooster.com/workout/view/' + val;
     }
   }
 });

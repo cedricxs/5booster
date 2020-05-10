@@ -3,7 +3,7 @@
 @section('content')
 
     @if(Session::has('status'))
-        <p> {{Session::get('status')}}</p>
+        <div class="alert alert-info" role="alert" style="left: 35%;width: 30%;top: 25%;height: 5%">{{Session::get('status')}}</div>
     @endif
 
 

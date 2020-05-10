@@ -39,6 +39,5 @@
             $options['amount'] = $amount;
             $options['source'] = $source_id;
             $charge = Charge::create($options, $this->stripeOptions());
-
         }
     }

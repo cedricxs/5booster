@@ -59,49 +59,9 @@
 
     methods: {
       fetchRecettes() {
-        console.log('created');
-        this.recettes = [
-          {
-            id: 1,
-            title: 'Super Recette 1',
-            url_preview: '',
-            url_recette: '',
-            repas: 'breakfast',
-            diet: 'vegan'
-          },
-          {
-            id: 2,
-            title: 'Super Recette 2',
-            url_preview: '',
-            url_recette: '',
-            repas: 'lunch',
-            diet: 'pork-free'
-          },
-          {
-            id: 3,
-            title: 'Super Recette 3',
-            url_preview: '',
-            url_recette: '',
-            repas: 'tea',
-            diet: 'gluten-free'
-          },
-          {
-            id: 4,
-            title: 'Super Recette 4',
-            url_preview: '',
-            url_recette: '',
-            repas: 'diner',
-            diet: 'vegetarian'
-          },
-          {
-            id: 5,
-            title: 'Super Recette 5',
-            url_preview: '',
-            url_recette: '',
-            repas: 'diner',
-            diet: 'lactose-free'
-          }
-        ]
+          // Request from API here
+          fetch("/api/recettes").then(res => res.json().then(data=>data.forEach(recette=>this.recettes.push(recette))));
+
       },
 
       update_filter(data) {

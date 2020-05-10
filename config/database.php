@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Str;
-
+$_ENV['isLocal'] = true;
 return [
 
     /*

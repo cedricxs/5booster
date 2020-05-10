@@ -19,17 +19,20 @@
                     </div>
                     <div class="form-group" id="password">
                         <input name="password" type="password" class="form-control" placeholder="Mot de passe">
-                        <a href="{{url('password/reset')}}"><small id="emailHelp" class="form-text text-muted">Mot de passe oublié ?</small></a>
+                        <a href="{{url('password/reset')}}"><small id="emailHelp" class="nav-link">Mot de passe oublié ?</small></a>
                     </div>
                     <div class="text-right">
                         <button type="submit" class="btn btn-primary">Connexion</button>
                     </div>
 
-                    <input type="checkbox" name="remember" />
-                    <small id="emailHelp" class="form-text text-muted">Se souvenir de moi</small>
+                    <span style="display:inline-block">
+                        <input type="checkbox" name="remember" />
+                        <small id="emailHelp" class="form-text text-muted">Se souvenir de moi</small>
+                    </span>
                 </form>
-                <div class="result_title">
-                </div>
+                @if(session('msg'))
+                    <div class="alert alert-danger" role="alert">{{session('msg')}}</div>
+                @endif
             </div>
 
         </div>

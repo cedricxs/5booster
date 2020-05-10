@@ -26,9 +26,8 @@ footer.page-footer-connected {
     margin-bottom: 12vh;
 }
 #wrapper{
-    top: 10%;
     width: 15%;
-    height: 73%;
+    height: 100%;
     position: absolute
 }
 #sidebar {
@@ -57,20 +56,48 @@ footer.page-footer-connected {
 }
 #main_container{
     position: absolute;
-    top: 10%;
     left: 15%;
     width: 85%;
-    height: 73%;
+    height: 100%;
     overflow: auto;
+    background-color: #ede7f6;
 }
 #centre{
-    top: 10%;
+    top: 9%;
     width: 100%;
-    height: 73%;
+    height: 76%;
+    position: absolute;
+}
+#questionnaire{
+    position: absolute;
+    left: 10%;
+    width: 80%;
+}
+#question{
+    font-family: Roboto,Arial,sans-serif;
+    margin-top: 12px;
+    border-width: 1px;
+    padding: 5px;
+    border-left-width: 5px;
+    border-left-color: #8D8D8D;
+}
+@font-face {
+    font-family: mFont;
+    src: url('/font/Raleway-Medium.ttf');
+}
+.question_title{
+    font-family: mFont;
+    font-size: 18px;
+}
+.form-check{
+    line-height: 40px;
+}
+.form-check-input{
+    top: 22%;
 }
 .footer_connected{
     position: relative;
-    bottom: -1%;
+    bottom: 0%;
     width:100%;
     height: 15%;
 }
@@ -78,7 +105,7 @@ footer.page-footer-connected {
     position: absolute;
     bottom: 0;
     width:100%;
-    height: 15%;
+    height: 16%;
 }
 #compte{
     position: absolute;
@@ -98,7 +125,7 @@ footer.page-footer-connected {
 }
 /*定义了滚动条整体样式；*/
 ::-webkit-scrollbar{
-    height: 28px !important;
+    height: 10px !important;
     width: 10px !important;
 }
 
@@ -121,6 +148,9 @@ footer.page-footer-connected {
 }
 ::-webkit-scrollbar-thumb:hover {
     background: rgba(157, 165, 183, 0.7)
+}
+.nav-link{
+    text-align: center;
 }
 /* -----
 SVG Icons - svgicons.sparkk.fr
@@ -232,7 +262,16 @@ SVG Icons - svgicons.sparkk.fr
   margin-top: 10px;
   font-weight: normal!important;
 }
-
+#recettes-filter-title {
+    text-transform: uppercase;
+    font-family: 'Pathway Gothic One', Arial, sans-serif;
+    margin-top: 10px;
+    font-size: 25px;
+    font-weight: normal!important;
+    border-bottom: solid;
+    border-width: 1px;
+    border-color: lightgray;
+}
 .filter-collapse {
   background-color: lightgray;
   border-radius: none!important;
@@ -307,14 +346,19 @@ SVG Icons - svgicons.sparkk.fr
     left: 0;
     overflow: auto;
 }
+#form_coach{
+    position: relative;
+    height: 100%;
+    width:100%;
+}
 #contact_coach{
-    position: absolute;
+    position: relative;
     width: 60%;
     left: 20%;
 }
 #contact_coach_msg{
-    position: absolute;
-    top: 85%;
+    position: relative;
+    margin-top: 1%;
     left: 25%;
     width: 50%;
 }
@@ -328,4 +372,10 @@ SVG Icons - svgicons.sparkk.fr
     left: 50%;
     position: relative;
     top: 60%;
+}
+.card-text{
+    font-family: 'Google Sans', Roboto, Arial, sans-serif;
+}
+.list-group-item{
+    font-family: 'Google Sans', Roboto, Arial, sans-serif;
 }

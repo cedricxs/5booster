@@ -257,6 +257,11 @@ __webpack_require__.r(__webpack_exports__);
   props: ['recette'],
   data: function data() {
     return {};
+  },
+  methods: {
+    getRecetteHref: function getRecetteHref(val) {
+      return 'http://mybooster.com/recette/view/' + val;
+    }
   }
 });
 
@@ -327,43 +332,16 @@ var all = 'all';
   },
   methods: {
     fetchRecettes: function fetchRecettes() {
-      console.log('created');
-      this.recettes = [{
-        id: 1,
-        title: 'Super Recette 1',
-        url_preview: '',
-        url_recette: '',
-        repas: 'breakfast',
-        diet: 'vegan'
-      }, {
-        id: 2,
-        title: 'Super Recette 2',
-        url_preview: '',
-        url_recette: '',
-        repas: 'lunch',
-        diet: 'pork-free'
-      }, {
-        id: 3,
-        title: 'Super Recette 3',
-        url_preview: '',
-        url_recette: '',
-        repas: 'tea',
-        diet: 'gluten-free'
-      }, {
-        id: 4,
-        title: 'Super Recette 4',
-        url_preview: '',
-        url_recette: '',
-        repas: 'diner',
-        diet: 'vegetarian'
-      }, {
-        id: 5,
-        title: 'Super Recette 5',
-        url_preview: '',
-        url_recette: '',
-        repas: 'diner',
-        diet: 'lactose-free'
-      }];
+      var _this = this;
+
+      // Request from API here
+      fetch("/api/recettes").then(function (res) {
+        return res.json().then(function (data) {
+          return data.forEach(function (recette) {
+            return _this.recettes.push(recette);
+          });
+        });
+      });
     },
     update_filter: function update_filter(data) {
       this.filter = data;
@@ -371,12 +349,12 @@ var all = 'all';
   },
   computed: {
     filtered_recettes: function filtered_recettes() {
-      var _this = this;
+      var _this2 = this;
 
       return this.recettes.filter(function (recette) {
-        var _this$filter = _this.filter,
-            repas = _this$filter.repas,
-            diet = _this$filter.diet;
+        var _this2$filter = _this2.filter,
+            repas = _this2$filter.repas,
+            diet = _this2$filter.diet;
         var allRepas = repas === "all";
         var allDiet = diet === "all";
         return (allRepas || recette.repas === repas) && (allDiet || recette.diet === diet);
@@ -1175,8 +1153,10 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "col-md-12 card mb-4" }, [
-    _c("h4", { staticClass: "text-center" }, [
-      _vm._v(_vm._s(_vm.recette.title))
+    _c("a", { attrs: { href: _vm.getRecetteHref(_vm.recette.id) } }, [
+      _c("h4", { staticClass: "text-center" }, [
+        _vm._v(_vm._s(_vm.recette.title))
+      ])
     ]),
     _vm._v(" "),
     _c("p", { staticClass: "text-center" }, [

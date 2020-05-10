@@ -8,7 +8,7 @@
  */
 
 define('LARAVEL_START', microtime(true));
-$_ENV['isLocal'] = true;
+if(!isset($_ENV['isLocal']))$_ENV['isLocal'] = true;
 
 /*
 |--------------------------------------------------------------------------

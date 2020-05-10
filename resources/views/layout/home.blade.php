@@ -7,6 +7,14 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="{{asset('/css/style.css')}}">
+    <script src="{{asset('/i18n/jquery.i18n.js')}}"></script>
+    <script src="{{asset('/i18n/jquery.i18n.messagestore.js')}}"></script>
+    <script src="{{asset('/i18n/jquery.i18n.fallbacks.js')}}"></script>
+    <script src="{{asset('/i18n/jquery.i18n.language.js')}}"></script>
+    <script src="{{asset('/i18n/jquery.i18n.parser.js')}}"></script>
+    <script src="{{asset('/i18n/jquery.i18n.emitter.js')}}"></script>
+    <script src="{{asset('/i18n/jquery.i18n.emitter.bidi.js')}}"></script>
+    <script src="{{assert('/i18n/script.js')}}"></script>
 </head>
 
   <body>
@@ -45,7 +53,7 @@
     <!-- Footer -->
     <footer class="footer">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="collapse navbar-collapse flex-md-column">
+            <div class=" navbar-collapse flex-md-column">
                 <ul class="navbar-nav m-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="#">A propos</a>

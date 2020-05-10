@@ -12,9 +12,10 @@
             <p class="card-text">L'abonnement de base!</p>
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">Option 1</li>
-            <li class="list-group-item">Option 2</li>
-            <li class="list-group-item">Option 3</li>
+            <li class="list-group-item">Accès aux workouts</li>
+            <li class="list-group-item">Accès aux recettes</li>
+            <li class="list-group-item">Accès au développement personnel</li>
+            <li class="list-group-item">Contact coach par mail</li>
           </ul>
           <div class="card-body">
               <div class="check-style-unequal-width"></div>
@@ -30,10 +31,11 @@
             <p class="card-text">L'idéal pour se faire plaisir</p>
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">Option 1</li>
-            <li class="list-group-item">Option 2</li>
-            <li class="list-group-item">Option 3</li>
-            <li class="list-group-item">Option 4</li>
+              <li class="list-group-item">Accès aux workouts</li>
+              <li class="list-group-item">Accès aux recettes</li>
+              <li class="list-group-item">Accès au développement personnel</li>
+              <li class="list-group-item">Contact coach par mail / sms etc...</li>
+              <li class="list-group-item">Workout personnalisé</li>
           </ul>
           <div class="card-body">
               @if($user->subscribed('boost') || $user->subscribed('max_boost'))
@@ -52,12 +54,13 @@
             <p class="card-text">Allez-y à fond</p>
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">Option 1</li>
-            <li class="list-group-item">Option 2</li>
-            <li class="list-group-item">Option 3</li>
-            <li class="list-group-item">Option 4</li>
-            <li class="list-group-item">Option 5</li>
-            <li class="list-group-item">Option 6</li>
+              <li class="list-group-item">Accès aux workouts</li>
+              <li class="list-group-item">Accès aux recettes</li>
+              <li class="list-group-item">Accès au développement personnel</li>
+              <li class="list-group-item">Contact coach par mail / sms etc...</li>
+              <li class="list-group-item">Workout personnalisé</li>
+              <li class="list-group-item">Recettes personalisées</li>
+              <li class="list-group-item">Suivi personnalisé</li>
           </ul>
           <div class="card-body">
               @if($user->subscribed('max_boost'))

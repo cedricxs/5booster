@@ -18,7 +18,7 @@
     },
     methods:{
         getWorkoutHref:function(val){
-            return 'http://mybooster.com/workout/'+val
+            return 'http://mybooster.com/workout/view/'+val
         }
 
     }
