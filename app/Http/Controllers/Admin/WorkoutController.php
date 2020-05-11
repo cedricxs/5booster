@@ -7,6 +7,7 @@ use App\Http\Model\Workout;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
 
 
@@ -91,7 +92,18 @@ class WorkoutController extends Controller
             $new_file->storeAs('workouts/', $filename);
             $data['url_workout'] = '\app\workouts\\'.$filename;
         }
-        $workout->update($data);
+        foreach($data as $key=>$val){
+            $workout->$key = $val;
+        }
+        $changes = $workout->syncChanges()->getChanges();
+        $info = "{";
+        foreach ($changes as $key=>$val){
+            $origin = $workout->getOriginal($key);
+            $info = $info."$key : $origin -> $val ;";
+        }
+        $info = $info."}";
+        $workout->save();
+        Log::info('admin '.$request->user()->username.' has updated the workout '.$workout_id." {$info}");
         return back()->with('msg','update the workout successfully');
     }
 }
