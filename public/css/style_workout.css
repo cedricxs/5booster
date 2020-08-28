@@ -1,0 +1,28 @@
+.workout-view-exercise-title  {
+  font-family: 'Pathway Gothic One';
+}
+#workout-view-content{
+    margin-bottom: 50px;
+}
+#workout-view-title {
+  font-family: 'Pathway Gothic One';
+}
+
+.workout-view-decription-text {
+  font-family: 'Pathway Gothic One';
+}
+
+.vertical-centered {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+#workout-view-description {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+#workout-view {
+    overflow: auto;
+  background: rgb(200,200,200);
+background: linear-gradient(90deg, rgba(112,112,112,1) 0%, rgba(255,255,255,1) 0%, rgba(112,112,112,0.2810166302849265) 100%);
+}

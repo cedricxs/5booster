@@ -49,11 +49,9 @@ Auth::routes(['verify'=>true]);
 Route::get('/logout','Auth\LoginController@logout');
 Route::group(['prefix'=>'admin','middleware'=>['web','auth','admin'], 'namespace'=>'Admin'], function (){
     Route::get('/','IndexController@index');
-    Route::resource('/workouts','WorkoutController');
+    Route::resource('/programs','ProgramController');
     Route::resource('/recettes','RecetteController');
 });
-Route::get('/workout/view/{id}','Client\WorkoutController@getById');
-Route::get('/workout/download/{id}','Client\WorkoutController@download');
 Route::get('/recette/view/{id}','Client\RecetteController@getById');
 Route::get('/recette/download/{id}','Client\RecetteController@download');
 

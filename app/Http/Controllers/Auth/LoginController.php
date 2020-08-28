@@ -45,7 +45,6 @@ class LoginController extends Controller
      */
     protected function redirectTo()
     {
-       // dd(Auth::guard()->getUser());
         return Auth::guard()->getUser()->isAdmin ? '/admin' : '/client';
     }
 }

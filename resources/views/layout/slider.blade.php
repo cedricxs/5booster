@@ -2,11 +2,9 @@
 
 @section('content')
 
-    <!-- Wrapper de sidebar -->
-    <main id="centre">
 
         <!-- Wrapper of sidebar -->
-        <div id="wrapper">
+        <div id="wrapper_sidebar">
 
             <!-- Sidebar -->
             <nav id="sidebar">
@@ -34,5 +32,4 @@
             @yield('container')
         </div>
 
-    </main>
 @endsection

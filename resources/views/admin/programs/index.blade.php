@@ -43,13 +43,13 @@
         <!-- Example single danger button -->
         <div class="btn-group" id="focus">
             <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                {{'Focus:'.$contraintes['focus']}}
+                {{'Focus:'.str_replace('-',' ',$contraintes['focus'])}}
             </button>
             <div class="dropdown-menu">
                 <a class="dropdown-item" href="javascript:void(0)" onclick="updateHref('focus','All')">All</a>
-                <a class="dropdown-item" href="javascript:void(0)" onclick="updateHref('focus','Upper_body')">Upper body</a>
-                <a class="dropdown-item" href="javascript:void(0)" onclick="updateHref('focus','Core')">Core</a>
-                <a class="dropdown-item" href="javascript:void(0)" onclick="updateHref('focus','Lower_body')">Lower body</a>
+                <a class="dropdown-item" href="javascript:void(0)" onclick="updateHref('focus','upper-body')">Upper body</a>
+                <a class="dropdown-item" href="javascript:void(0)" onclick="updateHref('focus','core')">Core</a>
+                <a class="dropdown-item" href="javascript:void(0)" onclick="updateHref('focus','lower-body')">Lower body</a>
             </div>
         </div>
         <!-- Example single danger button -->
@@ -59,10 +59,10 @@
             </button>
             <div class="dropdown-menu">
                 <a class="dropdown-item" href="javascript:void(0)" onclick="updateHref('difficulty','All')">All</a>
-                <a class="dropdown-item" href="javascript:void(0)" onclick="updateHref('difficulty','Easy')">Easy</a>
-                <a class="dropdown-item" href="javascript:void(0)" onclick="updateHref('difficulty','Medium')">Medium</a>
-                <a class="dropdown-item" href="javascript:void(0)" onclick="updateHref('difficulty','Hard')">Hard</a>
-                <a class="dropdown-item" href="javascript:void(0)" onclick="updateHref('difficulty','Expert')">Expert</a>
+                <a class="dropdown-item" href="javascript:void(0)" onclick="updateHref('difficulty','easy')">Easy</a>
+                <a class="dropdown-item" href="javascript:void(0)" onclick="updateHref('difficulty','medium')">Medium</a>
+                <a class="dropdown-item" href="javascript:void(0)" onclick="updateHref('difficulty','hard')">Hard</a>
+                <a class="dropdown-item" href="javascript:void(0)" onclick="updateHref('difficulty','expert')">Expert</a>
             </div>
         </div>
         <!-- Example single danger button -->
@@ -72,10 +72,10 @@
             </button>
             <div class="dropdown-menu">
                 <a class="dropdown-item" href="javascript:void(0)" onclick="updateHref('type','All')">All</a>
-                <a class="dropdown-item" href="javascript:void(0)" onclick="updateHref('type','Cardio')">Cardio</a>
-                <a class="dropdown-item" href="javascript:void(0)" onclick="updateHref('type','Strength')">Strength</a>
-                <a class="dropdown-item" href="javascript:void(0)" onclick="updateHref('type','Power')">Power</a>
-                <a class="dropdown-item" href="javascript:void(0)" onclick="updateHref('type','Function')">Function</a>
+                <a class="dropdown-item" href="javascript:void(0)" onclick="updateHref('type','cardio')">Cardio</a>
+                <a class="dropdown-item" href="javascript:void(0)" onclick="updateHref('type','strength')">Strength</a>
+                <a class="dropdown-item" href="javascript:void(0)" onclick="updateHref('type','power')">Power</a>
+                <a class="dropdown-item" href="javascript:void(0)" onclick="updateHref('type','function')">Function</a>
             </div>
         </div>
         <!--快捷导航 结束-->
@@ -99,7 +99,7 @@
                 <tr>
                     <td class="tc">{{$v->id}}</td>
                     <td><a href="{{url('workout/view/').'/'.$v->id}}">{{$v->title}}</a></td>
-                    <td>{{$v->focus}}</td>
+                    <td>{{str_replace('-',' ',$v->focus)}}</td>
                     <td>{{$v->type}}</td>
                     <td>{{$v->difficulty}}</td>
                     <td>{{$v->view}}</td>

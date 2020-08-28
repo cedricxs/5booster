@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Model\Question;
 use App\Http\Model\Recette;
 use App\Http\Model\User;
-use App\Http\Model\Workout;
+use App\Http\Model\WeekProgram;
 use http\Cookie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\App;
 class ApiController extends Controller
 {
     public function getWorkouts(){
-        $workouts = Workout::all();
+        $workouts = WeekProgram::all();
         $json = $workouts->toArray();
         return Response::json($json);
     }

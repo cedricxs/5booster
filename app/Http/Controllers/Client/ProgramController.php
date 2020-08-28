@@ -3,23 +3,26 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
-use App\Http\Model\Workout;
+use App\Http\Model\Exercise;
+use App\Http\Model\WeekProgram;
+use App\Http\Model\Description;
 use Illuminate\Http\Request;
 
-class WorkoutController extends Controller
+class ProgramController extends Controller
 {
     //
     public function getById($id)
     {
-        $workout = Workout::find($id);
-        $workout->addView();
-        return view('workout.view',['workout'=>$workout]);
+        $workout = WeekProgram::find($id);
+        $exercices = Exercise::where('workout_id',$workout->id)->orderby('index_workout')->get();
+        $description = Description::where('workout_id',$workout->id)->get();
+        return view('workout.view',['workout'=>$workout,'exercices'=>$exercices,'description'=>$description]);
     }
 
 
     public function download($id, Request $request)
     {
-        $workout = Workout::find($id);
+        $workout = WeekProgram::find($id);
         $title = $workout->title;
 
         //PDF file is stored under project/storage/app/workouts/info.pdf

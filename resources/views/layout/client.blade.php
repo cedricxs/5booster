@@ -53,12 +53,15 @@
     </header>
     <!-- Header -->
 
+    <!-- Wrapper de sidebar -->
+    <main id="centre">
+        @yield('content')
+    </main>
 
-    @yield('content')
 
     <!-- Footer -->
     <footer class="footer">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav id="footer_nav" class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="collapse navbar-collapse flex-md-column">
                 <ul class="navbar-nav m-auto">
                     <li class="nav-item">
