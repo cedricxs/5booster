@@ -16,7 +16,8 @@ class ProgramHasCategory extends Model
     ];
 
 
-    //protected $primaryKey = 'id_week_program';
+    protected $primaryKey = 'id_week_program';
+    public $incrementing = false;
     //public $timestamps = false;
     protected $table = 'ProgramHasCategory';
 }

@@ -14,9 +14,19 @@ use Illuminate\Support\Facades\App;
 
 class ApiController extends Controller
 {
-    public function getWorkouts(){
-        $workouts = WeekProgram::all();
-        $json = $workouts->toArray();
+    public function getPrograms(Request $request){
+        //01/09/2020 1ere semaine
+        $user = $request->user();
+        $week_number = (int)ceil((date_create()->getTimestamp()-date_create('2020-08-01')->getTimestamp())/(7*24*3600));
+        if($user->hasAbonner()){
+            $programs = WeekProgram::where('week_number','=',$week_number)->get();
+        }
+        else{
+            $programs = WeekProgram::where(['free'=>true,'week_number'=>$week_number])->get();
+        }
+
+
+        $json = $programs->toArray();
         return Response::json($json);
     }
 

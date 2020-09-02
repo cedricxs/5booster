@@ -1,17 +1,17 @@
 @extends('admin.index')
 @section('container')
 
-    <script type="text/javascript"> addTitle('workout')</script>
+    <script type="text/javascript"> addTitle('program')</script>
 <!--搜索结果页面 列表 开始-->
     <div class="result_wrap">
         <div class="result_title">
-            <h3>all workouts</h3>
+            <h3>all programs</h3>
         </div>
         <!--快捷导航 开始-->
         <div class="result_content">
             <div class="short_wrap">
-                <a href="{{url('admin/workouts/create')}}"><i class="fa fa-plus"></i>add workout</a>
-                <a href="{{url('admin/workouts')}}"><i class="fa fa-recycle"></i>all workouts</a>
+                <a href="{{url('admin/programs/create')}}"><i class="fa fa-plus"></i>add program</a>
+                <a href="{{url('admin/programs')}}"><i class="fa fa-recycle"></i>all programs</a>
             </div>
         </div>
         <script type="text/javascript">
@@ -40,42 +40,16 @@
             }
 
         </script>
-        <!-- Example single danger button -->
-        <div class="btn-group" id="focus">
+
+        <div class="btn-group" id="category">
             <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                {{'Focus:'.str_replace('-',' ',$contraintes['focus'])}}
+                {{'Category:'.$contrainte_category}}
             </button>
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="javascript:void(0)" onclick="updateHref('focus','All')">All</a>
-                <a class="dropdown-item" href="javascript:void(0)" onclick="updateHref('focus','upper-body')">Upper body</a>
-                <a class="dropdown-item" href="javascript:void(0)" onclick="updateHref('focus','core')">Core</a>
-                <a class="dropdown-item" href="javascript:void(0)" onclick="updateHref('focus','lower-body')">Lower body</a>
-            </div>
-        </div>
-        <!-- Example single danger button -->
-        <div class="btn-group" id="difficulty">
-            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                {{'Difficulty:'.$contraintes['difficulty']}}
-            </button>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="javascript:void(0)" onclick="updateHref('difficulty','All')">All</a>
-                <a class="dropdown-item" href="javascript:void(0)" onclick="updateHref('difficulty','easy')">Easy</a>
-                <a class="dropdown-item" href="javascript:void(0)" onclick="updateHref('difficulty','medium')">Medium</a>
-                <a class="dropdown-item" href="javascript:void(0)" onclick="updateHref('difficulty','hard')">Hard</a>
-                <a class="dropdown-item" href="javascript:void(0)" onclick="updateHref('difficulty','expert')">Expert</a>
-            </div>
-        </div>
-        <!-- Example single danger button -->
-        <div class="btn-group" id="type">
-            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                {{'Type:'.$contraintes['type']}}
-            </button>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="javascript:void(0)" onclick="updateHref('type','All')">All</a>
-                <a class="dropdown-item" href="javascript:void(0)" onclick="updateHref('type','cardio')">Cardio</a>
-                <a class="dropdown-item" href="javascript:void(0)" onclick="updateHref('type','strength')">Strength</a>
-                <a class="dropdown-item" href="javascript:void(0)" onclick="updateHref('type','power')">Power</a>
-                <a class="dropdown-item" href="javascript:void(0)" onclick="updateHref('type','function')">Function</a>
+                <a class="dropdown-item" href="javascript:void(0)" onclick="updateHref('category','All')">All</a>
+                @foreach($categories as $category)
+                    <a class="dropdown-item" href="javascript:void(0)" onclick="updateHref('category','{{$category->sport_category_name}}')">{{$category->sport_category_name}}</a>
+                @endforeach
             </div>
         </div>
         <!--快捷导航 结束-->
@@ -86,26 +60,23 @@
             <table class="list_tab">
                 <tr>
                     <th class="tc" width="5%">ID</th>
-                    <th>title</th>
-                    <th>focus</th>
-                    <th>type</th>
-                    <th>difficulty</th>
+                    <th>week number</th>
+                    <th>category</th>
+                    <th>free</th>
                     <th>view</th>
                     <th>operations</th>
-
                 </tr>
 
                 @foreach($data as $v)
                 <tr>
-                    <td class="tc">{{$v->id}}</td>
-                    <td><a href="{{url('workout/view/').'/'.$v->id}}">{{$v->title}}</a></td>
-                    <td>{{str_replace('-',' ',$v->focus)}}</td>
-                    <td>{{$v->type}}</td>
-                    <td>{{$v->difficulty}}</td>
+                    <td class="tc">{{$v->id_week_program}}</td>
+                    <td>{{$v->week_number}}</td>
+                    <td>{{$v->category->sport_category_name}}</td>
+                    <td>{{$v->free==1?'yes':'no'}}</td>
                     <td>{{$v->view}}</td>
                     <td>
-                        <a href="{{url('admin/workouts/'.$v->id.'/edit')}}">edit</a>
-                        <a  onclick="delCate({{$v->id}})">delete</a>
+                        <a href="{{url('admin/programs/'.$v->id_week_program.'/edit')}}">edit</a>
+                        <a  onclick="delCate({{$v->id_week_program}})">delete</a>
                     </td>
                 </tr>
                 @endforeach
@@ -120,12 +91,12 @@
 <script>
 
     //这里是删除分类的提示框
-    function delCate(workout_id){
+    function delCate(id_week_program){
         layer.confirm('Are you sure to delete this workout?', {
             btn: ['yes','no'] //按钮
         }, function(){
             //传异步参数
-            $.post("{{url('admin/workouts/')}}/"+workout_id,{'_method':'delete','_token':"{{csrf_token()}}"},function (data) {
+            $.post("{{url('admin/programs/')}}/"+id_week_program,{'_method':'delete','_token':"{{csrf_token()}}"},function (data) {
                 console.log(data);
                 if(data.status == 0){
                     layer.msg(data.msg,{icon: 6});

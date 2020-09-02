@@ -29,19 +29,19 @@
                 <tr>
                     <th>recette title：</th>
                     <td>
-                        <input type="text" class="lg" name="title">
+                        <input required type="text" class="lg" name="title">
                     </td>
                 </tr>
                 <tr>
                     <th>recette repas：</th>
                     <td>
-                        <input type="text" class="lg" name="repas">
+                        <input required type="text" class="lg" name="repas">
                     </td>
                 </tr>
                 <tr>
                     <th>recette diet：</th>
                     <td>
-                        <input type="text" class="lg" name="diet">
+                        <input required type="text" class="lg" name="diet">
                     </td>
                 </tr>
 {{--                <tr>--}}

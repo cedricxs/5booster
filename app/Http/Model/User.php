@@ -16,7 +16,7 @@
         protected $fillable = [
             'user_id', 'username', 'password',
             'telephone','birthday','sex','email',
-            'remember_token','email_verified_at','isAdmin',
+            'remember_token','email_verified_at','isAdmin','questionnaire'
         ];
 
         /**
@@ -39,5 +39,13 @@
             $options['amount'] = $amount;
             $options['source'] = $source_id;
             $charge = Charge::create($options, $this->stripeOptions());
+        }
+
+        public function hasAbonner()
+        {
+            return ($this->subscribed('boost') || $this->subscribed('max_boost'));
+        }
+        public function hasRepondreQuestionnaire(){
+            return $this->questionnaire;
         }
     }

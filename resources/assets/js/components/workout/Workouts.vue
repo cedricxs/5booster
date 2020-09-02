@@ -3,7 +3,7 @@
 
     <!-- Workout component -->
     <div class="col-7 offset-1">
-      <h2 class="text-center" id="workouts-global-preview-title">Workouts</h2>
+      <h2 class="text-center" id="workouts-global-preview-title">Programs</h2>
       <div class="row">
         <div class="col-sm-12 col-md-6 col-lg-4" v-for="workout in filtered_workouts">
           <workout-preview v-bind:workout="workout"></workout-preview>
@@ -61,7 +61,7 @@
     methods: {
       fetchWorkouts() {
         // Request from API here
-          fetch("/api/workouts").then(res => res.json().then(data=>data.forEach(workout=>this.workouts.push(workout))));
+          fetch("/api/programs").then(res => res.json().then(data=>data.forEach(workout=>this.workouts.push(workout))));
 
       },
 

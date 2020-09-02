@@ -30,19 +30,19 @@
                 <tr>
                     <th>title：</th>
                     <td>
-                        <input type="text" class="lg" name="title" value="{{$recette->title}}">
+                        <input required type="text" class="lg" name="title" value="{{$recette->title}}">
                     </td>
                 </tr>
                 <tr>
                     <th>type：</th>
                     <td>
-                        <input type="text" class="lg" name="repas" value="{{$recette->repas}}">
+                        <input required type="text" class="lg" name="repas" value="{{$recette->repas}}">
                     </td>
                 </tr>
                 <tr>
                     <th>focus：</th>
                     <td>
-                        <input type="text" class="lg" name="diet" value="{{$recette->diet}}">
+                        <input required type="text" class="lg" name="diet" value="{{$recette->diet}}">
                     </td>
                 </tr>
 {{--                <tr>--}}

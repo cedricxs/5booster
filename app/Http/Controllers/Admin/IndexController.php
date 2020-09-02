@@ -10,7 +10,7 @@ class IndexController extends Controller{
 
     public function index(Request $request)
     {
-        return view('admin.index')->with(['admin'=>$request->user()]);
+        return view('admin.accueil')->with(['admin'=>$request->user()]);
     }
 
 

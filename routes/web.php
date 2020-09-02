@@ -51,6 +51,7 @@ Route::group(['prefix'=>'admin','middleware'=>['web','auth','admin'], 'namespace
     Route::get('/','IndexController@index');
     Route::resource('/programs','ProgramController');
     Route::resource('/recettes','RecetteController');
+    Route::resource('/categories','CategoryController');
 });
 Route::get('/recette/view/{id}','Client\RecetteController@getById');
 Route::get('/recette/download/{id}','Client\RecetteController@download');

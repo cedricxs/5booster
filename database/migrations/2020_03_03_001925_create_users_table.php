@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration
             $table->string('sex');
             $table->string('email');
             $table->boolean('isAdmin');
+            $table->boolean('questionnaire');
             $table->string('remember_token')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->timestamp('created_at')->nullable();

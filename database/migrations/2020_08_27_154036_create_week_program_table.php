@@ -16,6 +16,7 @@ class CreateWeekProgramTable extends Migration
         Schema::create('WeekProgram', function (Blueprint $table) {
             $table->bigIncrements('id_week_program');
             $table->bigInteger('week_number');
+            $table->boolean('free');
             $table->string('urf_pdf');
             $table->timestamps();
         });

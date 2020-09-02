@@ -12,7 +12,7 @@ class WeekProgram extends Model
      * @var array
      */
     protected $fillable = [
-        'id_week_program', 'week_number', 'url_pdf'
+        'id_week_program', 'week_number', 'url_pdf','free'
     ];
 
 

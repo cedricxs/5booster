@@ -12,8 +12,8 @@ class Exercise extends Model
      * @var array
      */
     protected $fillable = [
-        'id_exercise', 'exercise_name','imgs',
-        'exercise_video_url','nb_img'
+        'id_exercise', 'exercise_name',
+        'exercise_video_url',
     ];
 
 

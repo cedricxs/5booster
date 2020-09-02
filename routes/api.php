@@ -16,7 +16,7 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('/workouts','ApiController@getWorkouts');
+Route::get('/programs','ApiController@getPrograms');
 Route::get('/recettes','ApiController@getRecettes');
 Route::get('/questionnaire','ApiController@getQuestionnaire');
 Route::post('/setupIntent','ApiController@setupIntent');

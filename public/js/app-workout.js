@@ -497,7 +497,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       // Request from API here
-      fetch("/api/workouts").then(function (res) {
+      fetch("/api/programs").then(function (res) {
         return res.json().then(function (data) {
           return data.forEach(function (workout) {
             return _this.workouts.push(workout);
@@ -1586,7 +1586,7 @@ var render = function() {
   return _c("div", { staticClass: "col-md-12 card mb-4" }, [
     _c("a", { attrs: { href: _vm.getWorkoutHref(_vm.workout.id) } }, [
       _c("h4", { staticClass: "text-center" }, [
-        _vm._v(_vm._s(_vm.workout.title))
+        _vm._v(_vm._s(_vm.workout.week_number))
       ])
     ]),
     _vm._v(" "),
@@ -1631,7 +1631,7 @@ var render = function() {
           staticClass: "text-center",
           attrs: { id: "workouts-global-preview-title" }
         },
-        [_vm._v("Workouts")]
+        [_vm._v("Programs")]
       ),
       _vm._v(" "),
       _c(

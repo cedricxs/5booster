@@ -16,7 +16,8 @@ class ProgramHasExercise extends Model
     ];
 
 
-    //protected $primaryKey = 'id_week_program';
+    protected $primaryKey = 'id_exercise';
+    public $incrementing = false;
     //public $timestamps = false;
     protected $table = 'ProgramHasExercise';
 }

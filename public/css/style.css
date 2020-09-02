@@ -54,13 +54,6 @@ footer.page-footer-connected {
     color: #7386D5;
     background: #fff;
 }
-#centre{
-     top: 9%;
-     width: 100%;
-     height: 76%;
-     position: absolute;
-     overflow: auto;
- }
 #main_container{
     position: absolute;
     left: 15%;
@@ -69,7 +62,12 @@ footer.page-footer-connected {
     overflow: auto;
     background-color: #ede7f6;
 }
-
+#centre{
+    top: 9%;
+    width: 100%;
+    height: 76%;
+    position: absolute;
+}
 #questionnaire{
     position: absolute;
     left: 10%;
@@ -97,16 +95,17 @@ footer.page-footer-connected {
 .form-check-input{
     top: 22%;
 }
+.footer_connected{
+    position: relative;
+    bottom: 0%;
+    width:100%;
+    height: 15%;
+}
 .footer{
     position: absolute;
     bottom: 0;
     width:100%;
-    height: 16%;
-}
-#footer_nav{
-    position: absolute;
-    width:100%;
-    height: 100%;
+    height: 17%;
 }
 #compte{
     position: absolute;
@@ -380,7 +379,6 @@ SVG Icons - svgicons.sparkk.fr
 .list-group-item{
     font-family: 'Google Sans', Roboto, Arial, sans-serif;
 }
-
 #btn_workout_video{
     width: 50%;
     top: 580px;

@@ -16,7 +16,7 @@ class ClientHasCategory extends Model
     ];
 
 
-    //protected $primaryKey = 'id_week_program';
+    protected $primaryKey = null;
     //public $timestamps = false;
     protected $table = 'ClientHasCategory';
 }

@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Client;
 use App\Http\Controllers\Controller;
 use App\Http\Model\Post_Questionnaire;
 use App\Mail\Contact_Coach;
+use Faker\Provider\DateTime;
 use  Illuminate\Support\Facades\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -36,9 +37,14 @@ class IndexController extends Controller
         return view('client.sport');
     }
 
-    public function filtre()
+    public function filtre(Request $request)
     {
-        return view('client.filtre');
+        $user = $request->user();
+        if($user->hasAbonner()&&!$user->hasRepondreQuestionnaire()){
+            return view('client.repondre_questionnaire_svp');
+        }
+        else
+            return view('client.filtre');
     }
     public function recettes()
     {
