@@ -13,7 +13,7 @@
             </div>
             <div class="col-sm">
                 <form class="right" method="post" action="{{url('/login')}}">
-                    <input type="hidden" name="_token" value="LAd6l5BdPY3aWyCrWYTBeMvCc04OQdFx8a3hIbiP">
+                    {{csrf_field()}}
                     <div class="form-group" id="username">
                         <input name="email" class="form-control" aria-describedby="emailHelp" placeholder="@lang('message.email')">
                     </div>

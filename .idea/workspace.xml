@@ -2,41 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fba3cf10-2f1b-4db9-aa24-9a5dbf3e8067" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/categories/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/categories/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/categories/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/client/repondre_questionnaire_svp.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/5booster.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/5booster.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/WorkoutController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProgramController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ApiController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Client/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Client/IndexController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Model/ClientHasCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Model/ClientHasCategory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Model/Exercise.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Model/Exercise.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Model/ProgramHasCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Model/ProgramHasCategory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Model/ProgramHasExercise.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Model/ProgramHasExercise.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Model/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Model/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Model/WeekProgram.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Model/WeekProgram.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_03_001925_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_03_001925_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_27_154036_create_week_program_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_27_154036_create_week_program_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/ch-ui.admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/ch-ui.admin.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/style_workout.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style_workout.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app-recette.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app-recette.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app-workout.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app-workout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/assets/js/components/workout/WorkoutPreview.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/js/components/workout/WorkoutPreview.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/assets/js/components/workout/Workouts.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/js/components/workout/Workouts.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/programs/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/programs/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/programs/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/programs/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/programs/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/programs/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/recettes/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/recettes/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/recettes/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/recettes/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layout/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/workout/view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/program/view.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -303,6 +272,9 @@
       <workItem from="1598626792025" duration="5289000" />
       <workItem from="1598715623742" duration="33927000" />
       <workItem from="1598978581806" duration="3690000" />
+      <workItem from="1602020428791" duration="3263000" />
+      <workItem from="1602023836101" duration="33000" />
+      <workItem from="1602084024019" duration="9984000" />
     </task>
     <servers />
   </component>
