@@ -1,7 +1,7 @@
 @extends('admin.index')
 @section('container')
 
-    <script type="text/javascript"> addTitle('recette')</script>
+    <script type="text/javascript"> addTitle('recette','{{url('admin/recettes')}}')</script>
     <!--搜索结果页面 列表 开始-->
         <div class="result_wrap">
             <div class="result_title">
@@ -22,9 +22,9 @@
                 <table class="list_tab">
                     <tr>
                         <th class="tc" width="5%">ID</th>
-                        <th>title</th>
-                        <th>repas</th>
-                        <th>diet</th>
+                        <th>recette name</th>
+                        <th>recette img</th>
+                        <th>description</th>
                         <th>view</th>
                         <th>operations</th>
 
@@ -32,14 +32,14 @@
 
                     @foreach($data as $v)
                         <tr>
-                            <td class="tc">{{$v->id}}</td>
-                            <td><a href="{{url('recette/view/').'/'.$v->id}}">{{$v->title}}</a></td>
-                            <td>{{$v->repas}}</td>
-                            <td>{{$v->diet}}</td>
+                            <td class="tc">{{$v->id_recette}}</td>
+                            <td>{{$v->recette_name}}</td>
+                            <td><img style="width: 100px;height:50px" src="{{asset($v->url_preview)}}"/></td>
+                            <td>{{$v->description}}</td>
                             <td>{{$v->view}}</td>
                             <td>
-                                <a href="{{url('admin/recettes/'.$v->id.'/edit')}}">edit</a>
-                                <a  onclick="delCate({{$v->id}})">delete</a>
+                                <a href="{{url('admin/recettes/'.$v->id_recette.'/edit')}}">edit</a>
+                                <a  onclick="delCate({{$v->id_recette}})">delete</a>
                             </td>
                         </tr>
                     @endforeach

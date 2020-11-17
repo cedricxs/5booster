@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Model\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 class RegisterController extends Controller
@@ -72,6 +73,13 @@ class RegisterController extends Controller
             'sex' => $data['sex'],
             'birthday' => $data['birthday'],
             'isAdmin' => false,
+            'questionnaire'=>false,
+            'image'=>asset("img/finder.jpg")
         ]);
+    }
+
+    public function emailHasRegistered()
+    {
+        return Response::json(['msg'=>'email has registered'],400);
     }
 }

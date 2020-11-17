@@ -1,0 +1,50 @@
+<?php
+//Request创建过程,调用了capture静态方法,Laravel的Request是继承了Symfony框架中的Request,后者是从超全局变量$_GET,$_POST,$_FILES等创建而来的
+//createFromBase(SymfonyRequest)中,将SymfonyRequest的属性都复制了一遍从而包装成了Laravel的Request
+
+//UserProvider 提供了框架如何获取user,在authManager的构造函数中定义了userProvider并bind到application中,
+//userProvider具体实现为使用配置guard和配置provider来实现.
+//然后又rebind了request,目的是为request设置userProvider,
+//这样就可以在request中直接获取user.
+
+//在用户未登陆时的第一次访问, 服务器分配一个空的sessionStore,
+//当startSession读取session时setId(从cookie获取sessionId)发现是无效sessionId，则新生成一个sessionId
+//并将此sessionId setCookies给前端,以后只需要从request->cookie读取sessionId即可
+
+//session读取过程:在SessionServiceProvider中绑定了session和session.store, 其中session.store则是返回Store会话的服务(但并不常用)
+//主要是在StartSession中间件中的handle中startSession中从sessionManager这一session服务实现类的
+//driver()方法根据相应的session.driver配置给store配置Handler,例如file形式存储的session为FileSessionHandler(可以配置为数据库驱动)并返回生成的Store,
+//这时store并没有注入数据,直到中间件中调用session->setId和startSession,session->start()才从相应的sessionHandler中根据sessionId读取session数据到Store中
+
+//当用户登陆后,在login方法中update了session,删掉原来的session文件并创建新的带loginId的session文件
+
+//需要的登陆的接口都定义了ApiAuth中间件
+
+//在middleware EncryptCookies中加密了cookies, 所以传输的lavarel_session是加密后的
+//在一段时间内sessionId是不会变的,在前端看到的变化只是每次cookie加密的结果
+//但是session内的_token是预留给每次请求可变的，用于csrf
+//通过middleware VerifyCsrfToken之后刷新每一次_token, 并保存到服务器端
+//前端在进入页面时获取最新的服务器_token,并在下一次post中带上_token, 服务器处理post时会刷新_token，表示刚刚的令牌已被用掉
+//这样当同一个_token提交两次时,会令牌不匹配
+//默认为filedriver的session,在sessionserviceprovider中bind Session,并在middleware StartSession中根据sessionid读取file创建session
+
+//订阅post还需要token验证一下防止多次提交
+
+//Application是IOC容器,在make方法中实现DI
+//IOC容器绑定所有的服务abstract为一个返回相应服务实现类的函数作为concrete,这个函数就是生产该服务实现类的脚本,如果该服务依赖于其他服务,则在脚本中调用app->make即可获取相关依赖
+//任何服务之间的依赖由IOC容器解决,解耦性高
+//在serviceProvider中为IOC容器不断绑定服务, 都会把concrete装饰为函数类(如果不是的话), 并在make调用时调用concrete($this)来将容器本身传递给函数以供解决其需要的所有依赖
+//在rebinding方法中，并不改变已经bindings[$abstract]中的concrete,而是添加reboundCallback
+//在Kernel的sendRequestThroughRouter中，先绑定了request的instance，又清空Facade中已经resolved的request,然后在dispatchToRouter中重新instance(request)
+//而在instance中则会调用rebound方法来调用所有的reboundCallback从而调用rebinding中的方法
+
+
+//Router是真正的路由器，负责请求映射控制器方法,Route是路由，代表单一条路由，在路由器中有路由数组
+//前者的serviceprovider是提供路由解析分发服务的，后者的只是用来往路由器中添加路由的服务
+//Kernel中处理request，并将此request分发给路由器，并找到相对应的控制器和方法，在获得相应方法后，在ControllerDispatcher中根据反射机制从IOC容器中make出所需要的参数
+
+//在添加serviceProvider时,可以添加在config/app.php或cache/package.php中, 对于像Cashier这样的自定义库来说,在composer.json中定义extra字段,
+//这样当用户(比如我)安装此库到laravel时，会自动加载到package列表中,而我不需要安装后手动添加此serviceProvider到app.php列表 https://laravel.com/docs/8.x/packages#package-discovery
+//在Kernel中boot RegisterProviders时会从上面两个文件获取所有serviceProvider
+//并调用所有app->register,service->register
+

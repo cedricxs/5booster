@@ -21,36 +21,40 @@
     const cardButton = document.getElementById('card-button');
     const clientSecret = cardButton.dataset.secret;
 
-    cardButton.addEventListener('click', async (e) => {
-        const { setupIntent, error } = await stripe.confirmCardSetup(
-            clientSecret, {
+    cardButton.addEventListener('click', function(ev) {
+
+        stripe.confirmCardSetup(
+            clientSecret,
+            {
                 payment_method: {
                     card: cardElement,
-                    billing_details: { name: cardHolderName.value }
-                }
+                    billing_details: {
+                        name: cardHolderName.value,
+                    },
+                },
             }
-        );
-
-        if (error) {
-            // Display "error.message" to the user...
-        } else {
-            // The card has been verified successfully...
-            console.log('setup succeed');
-            $.ajax({
-                url : "{{url('/api/setupIntent')}}",
-                method : "POST",
-                data : {
-                    intent:setupIntent,
-                },
-                dataType : 'text',
-                success : function (res) {
-                    console.log(res)
-                },
-                error : function (err) {
-                    console.log(err)
-                }
-            })
-        }
+        ).then(function(result) {
+            if (result.error) {
+                // Display error.message in your UI.
+            } else {
+                // The setup has succeeded. Display a success message.
+                console.log(result)
+                {{--$.ajax({--}}
+                {{--    url : "{{url('/api/setupIntent')}}",--}}
+                {{--    method : "POST",--}}
+                {{--    data : {--}}
+                {{--        intent:setupIntent,--}}
+                {{--    },--}}
+                {{--    dataType : 'text',--}}
+                {{--    success : function (res) {--}}
+                {{--        console.log(res)--}}
+                {{--    },--}}
+                {{--    error : function (err) {--}}
+                {{--        console.log(err)--}}
+                {{--    }--}}
+                {{--})--}}
+            }
+        });
     });
 </script>
 @endsection

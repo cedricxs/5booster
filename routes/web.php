@@ -36,6 +36,7 @@ Route::group(['prefix'=>'client','namespace'=>'Client','middleware'=>['web','aut
     Route::post('/contact_coach','IndexController@contact_coach');
     Route::get('/payer/alipay','IndexController@alipay')->middleware('verify_email');
     Route::get('/payer/alipay_ready','IndexController@alipay_ready')->middleware('verify_email');
+    Route::get('/payer/wechatpay','IndexController@wechatpay')->middleware('verify_email');
     Route::get('/payer/allPaymentMethod',function (\Illuminate\Http\Request $request){
         //$request->user()->deletePaymentMethods();
            dd($request->user()->paymentMethods());
@@ -51,7 +52,11 @@ Route::group(['prefix'=>'admin','middleware'=>['web','auth','admin'], 'namespace
     Route::get('/','IndexController@index');
     Route::resource('/programs','ProgramController');
     Route::resource('/recettes','RecetteController');
-    Route::resource('/categories','CategoryController');
+    Route::resource('/niveau','ProgramNiveauController');
+    Route::resource('/object','ProgramObjectController');
+    Route::resource('/codepromos','CodePromoController');
+    Route::resource('/ingredients','IngredientController');
+    Route::get('/programscell','ProgramController@indexCell');
 });
 Route::get('/recette/view/{id}','Client\RecetteController@getById');
 Route::get('/recette/download/{id}','Client\RecetteController@download');

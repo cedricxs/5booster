@@ -8,8 +8,9 @@
             <li>
                 <h3><i class="fa fa-fw fa-clipboard"></i>Program</h3>
                 <ul class="sub_menu" style="display: block">
-                    <li><a href="{{url('admin/programs/create')}}" ><i class="fa fa-fw fa-plus-square"></i>Add Program</a></li>
-                    <li><a href="{{url('admin/programs')}}" ><i class="fa fa-fw fa-list-ul"></i>All programs</a></li>
+                    <li><a href="{{url('admin/programs')}}" ><i class="fa fa-fw fa-list-ul"></i>Progrms Plan</a></li>
+                    <li><a href="{{url('admin/niveau')}}" ><i class="fa fa-fw fa-list-ul"></i>Program Niveau</a></li>
+                    <li><a href="{{url('admin/object')}}" ><i class="fa fa-fw fa-list-ul"></i>Program Object</a></li>
                 </ul>
             </li>
             <li>
@@ -17,13 +18,16 @@
                 <ul class="sub_menu" style="display: block">
                     <li><a href="{{url('admin/recettes/create')}}" ><i class="fa fa-fw fa-plus-square"></i>Add Recette</a></li>
                     <li><a href="{{url('admin/recettes')}}" ><i class="fa fa-fw fa-list-ul"></i>All Recettes</a></li>
+                    <li><a href="{{url('admin/ingredients/create')}}" ><i class="fa fa-fw fa-plus-square"></i>Add Ingredient</a></li>
+                    <li><a href="{{url('admin/ingredients')}}" ><i class="fa fa-fw fa-list-ul"></i>All Ingredients</a></li>
+
                 </ul>
             </li>
             <li>
-                <h3><i class="fa fa-fw fa-clipboard"></i>Category</h3>
+                <h3><i class="fa fa-fw fa-clipboard"></i>Abonnement</h3>
                 <ul class="sub_menu" style="display: block">
-                    <li><a href="{{url('admin/categories/create')}}" ><i class="fa fa-fw fa-plus-square"></i>Add Category</a></li>
-                    <li><a href="{{url('admin/categories')}}" ><i class="fa fa-fw fa-list-ul"></i>All Categories</a></li>
+                    <li><a href="{{url('admin/codepromos/create')}}" ><i class="fa fa-fw fa-plus-square"></i>Add Code promo</a></li>
+                    <li><a href="{{url('admin/codepromos')}}" ><i class="fa fa-fw fa-list-ul"></i>All Code promos</a></li>
                 </ul>
             </li>
         </ul>

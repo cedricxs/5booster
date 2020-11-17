@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Model\Exercise;
+use App\Http\Model\ProgramNiveau;
+use App\Http\Model\ProgramObject;
+use App\Http\Model\SportProgram;
 use App\Http\Model\ProgramHasCategory;
 use App\Http\Model\ProgramHasExercise;
 use App\Http\Model\SportCategory;
@@ -24,39 +26,40 @@ class ProgramController extends Controller
      * @param Request $request
      * @return Factory|View
      */
-    public function index(Request $request)
-    {
-        $category = $request['category'];
-        if($category=='All')unset($category);
-        if(isset($category)){
-            $id_contrainte_category = SportCategory::where(['sport_category_name'=>$category])
-                ->get()->first()->id_sport_category;
-            $records = ProgramHasCategory::where('id_sport_category',$id_contrainte_category)->get();
-            $id_week_program = [];
-            foreach ($records as $r){
-                $id_week_program[] = $r->id_week_program;
+    public function index(Request $request){
+        $niveau = ProgramNiveau::all();
+        $object = ProgramObject::all();
+        $count = [];
+        foreach ($niveau as $n){
+            foreach ($object as $o){
+                $count["$n->id_program_niveau".'_'."$o->id_program_object"] = SportProgram::where(['niveau'=>$n->id_program_niveau,'object'=>$o->id_program_object])->count();
             }
         }
+        return view('admin.programs.plan',['niveau'=>$niveau,'object'=>$object,'admin'=>$request->user(),'count'=>$count]);
 
-        if(isset($category))
-            $programs = WeekProgram::whereIn('id_week_program',$id_week_program)->paginate(5);
-        else{
-            $programs = WeekProgram::paginate(5);
-        }
-        foreach($programs as $program){
-            $category_id = ProgramHasCategory::where(['id_week_program'=>$program->id_week_program])
-                ->get()->first()->id_sport_category;
-            $program->category = SportCategory::find($category_id);
-        }
-        $categories = SportCategory::all();
-        return view('admin.programs.index',['data'=>$programs,'admin'=>$request->user(),'contrainte_category'=>$category??'All','categories'=>$categories]);
+    }
+
+    public function indexCell(Request $request)
+    {
+        $id_niveau = $request['niveau'];
+        $id_object = $request['object'];
+        $programs = SportProgram::where(['niveau'=>$id_niveau,'object'=>$id_object])->paginate(5);
+        $niveau = ProgramNiveau::find($id_niveau);
+        $object = ProgramObject::find($id_object);
+        return view('admin.programs.index',['data'=>$programs,'admin'=>$request->user(),'niveau'=>$niveau,'object'=>$object]);
     }
 
 
     public function create(Request $request)
     {
-        $categories = SportCategory::all();
-        return view('admin.programs.create')->with(['admin'=>$request->user(),'categories'=>$categories]);
+        $id_niveau = $request['niveau'];
+        $id_object = $request['object'];
+        $niveau = ProgramNiveau::find($id_niveau);
+        $object = ProgramObject::find($id_object);
+        $all_niveau = ProgramNiveau::all();
+        $all_object = ProgramObject::all();
+        return view('admin.programs.create')->with(['admin'=>$request->user(),
+            'niveau'=>$niveau,'object'=>$object,'all_niveau'=>$all_niveau,'all_object'=>$all_object]);
     }
 
     public function destroy($workout_id)
@@ -68,108 +71,43 @@ class ProgramController extends Controller
 
     public function store(Request $request)
     {
-        $id_week_program = WeekProgram::max('id_week_program')+1;
-        $program = [
-            'id_week_program'=>$id_week_program,
-            'week_number'=>$request['week_number'],
-            'free'=>$request['free']=='on'?true:false,
-//          'view'=>0,
+        $data = [
+            'program_name'=>$request['name'],
+            'program_video_url'=>$request['video_url'],
+            'niveau'=>$request['niveau'],
+            'object'=>$request['object'],
+            'view'=>0,
         ];
-        if($request->hasFile('pdf')){
-            $file = $request->file('pdf');
-            $extension = $file->getClientOriginalExtension();
-            $filename = "program_" . $program['id_week_program'] . '_' . $program['week_number'] . '.' . $extension;
-            $file->storeAs('programs/', $filename);
-            $program['url_pdf'] = 'app' . DIRECTORY_SEPARATOR . 'programs'. DIRECTORY_SEPARATOR  . $filename;
-        }
-        if($request['nb_exercise']>0){
-            for($i=0;$i<$request['nb_exercise'];$i++){
-                $exercise = [
-                    'id_exercise'=>Exercise::max('id_exercise')+1,
-                    'exercise_name'=>$request['exercise_name_'.($i+1)],
-                    'exercise_video_url'=>$request['exercise_video_url_'.($i+1)],
-                ];
-                Exercise::create($exercise);
-                ProgramHasExercise::create(['id_exercise'=>$exercise['id_exercise'],'id_week_program'=>$id_week_program]);
-            }
-        }
-        WeekProgram::create($program);
-        ProgramHasCategory::create(['id_week_program'=>$id_week_program,'id_sport_category'=>$request['category']]);
-        return back()->with('msg','add the program successfully');
+        SportProgram::create($data);
+        return redirect('admin/programscell?niveau='."$request->niveau&object=$request->object")->with('msg','add the program successfully');
     }
 
-    public function edit($id_week_program, Request $request)
+    public function edit($id_program, Request $request)
     {
-        $program= WeekProgram::find($id_week_program);
-        $categories = SportCategory::all();
-        $current_category = ProgramHasCategory::where(['id_week_program'=>$program->id_week_program])->get()->first();
-        $id_exercise = [];
-        $records = ProgramHasExercise::where(['id_week_program'=>$id_week_program])->get();
-        foreach($records as $record){
-            $id_exercise[] = $record->id_exercise;
-        }
-        $exercises = Exercise::whereIn('id_exercise',$id_exercise)->get();
-        return view('admin.programs.edit',
-            ['program'=>$program,
-                'admin'=>$request->user(),
-                'categories'=>$categories,
-                'current_category'=>$current_category,
-                'exercises'=>$exercises]);
+        $program = SportProgram::find($id_program);
+        $all_niveau = ProgramNiveau::all();
+        $all_object = ProgramObject::all();
+        $niveau = ProgramNiveau::find($program->niveau);
+        $object = ProgramObject::find($program->object);
+        return view('admin.programs.edit',['admin'=>$request->user(),'program'=>$program,
+            'niveau'=>$niveau,'object'=>$object,
+            'all_niveau'=>$all_niveau,'all_object'=>$all_object]);
     }
 
-    public function update(Request $request,$id_week_program)
+    public function update(Request $request, $id_program)
     {
         $data = [
-            'week_number'=>$request['week_number'],
-            'free'=>$request['free']=='on'?true:false,
+            'program_name'=>$request['name'],
+            'program_video_url'=>$request['video_url'],
+            'niveau'=>$request['niveau'],
+            'object'=>$request['object'],
         ];
-        $new_id_category = $request['category'];
-        $record = ProgramHasCategory::where('id_week_program',$id_week_program)->get()->first();
-        $record->id_sport_category = $new_id_category;
-
-        $program = WeekProgram::find($id_week_program);
-        if($request->hasFile('pdf')){
-            $new_file = $request->file('pdf');
-            if(!is_null($program->url_pdf)){
-                $old_file = storage_path().DIRECTORY_SEPARATOR.$program->url_pdf;
-                unlink($old_file);
-            }
-            $extension = $new_file->getClientOriginalExtension();
-            $filename = "program_" . $id_week_program . '_' . $data['week_number'] . '.' . $extension;
-            $new_file->storeAs('programs/', $filename);
-            $data['url_pdf'] = 'app' . DIRECTORY_SEPARATOR . 'programs'. DIRECTORY_SEPARATOR . $filename;
-        }
-
-        if($request['change_exercise']=="true"){
-            $records_phe = ProgramHasExercise::where('id_week_program',$id_week_program)->get();
-            foreach ($records_phe as $record_phe){
-                $record_phe->delete();
-            }
-            if($request['nb_exercise']>0){
-                for($i=0;$i<$request['nb_exercise'];$i++){
-                    $exercise = [
-                        'exercise_name'=>$request['exercise_name_'.($i+1)],
-                        'exercise_video_url'=>$request['exercise_video_url_'.($i+1)],
-                    ];
-                    $exist = Exercise::where($exercise)->get();
-                    if(count($exist)==0){
-                        $exercise['id_exercise'] = Exercise::max('id_exercise')+1;
-                        Exercise::create($exercise);
-                    }else{
-                        $exercise['id_exercise'] = $exist->first()->id_exercise;
-                    }
-                    ProgramHasExercise::create(['id_exercise'=>$exercise['id_exercise'],'id_week_program'=>$id_week_program]);
-                }
-            }
-        }
-        foreach($data as $key=>$val){
-            $program->$key = $val;
-        }
-
-
+        $program = SportProgram::find($id_program);
+        $old_niveau = $program->niveau;
+        $old_object = $program->object;
+        $program->update($data);
 
         $changes = $program->syncChanges()->getChanges();
-        $changes = array_merge($changes,$record->syncChanges()->getChanges());
         $info = "{";
         foreach ($changes as $key=>$val){
             $origin = $program->getOriginal($key);
@@ -177,8 +115,7 @@ class ProgramController extends Controller
         }
         $info = $info."}";
         $program->save();
-        $record->save();
-        Log::info('admin '.$request->user()->username.' has updated the workout '.$id_week_program." {$info}");
-        return back()->with('msg','update the workout successfully');
+        Log::info('admin '.$request->user()->username.' has updated the program '.$id_program." {$info}");
+        return redirect('admin/programscell?niveau='."$old_niveau&object=$old_object")->with('msg','update the program successfully');
     }
 }

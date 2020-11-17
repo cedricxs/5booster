@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Model\User;
 use Illuminate\Support\Facades\Mail;
-use Stripe\Stripe;
+use Stripe\PaymentIntent;
 
 class IndexController extends Controller
 {
@@ -137,7 +137,7 @@ class IndexController extends Controller
 //        }
 
         return view('update-payment-method', [
-            'intent' => $user->createSetupIntent(),
+            'intent' => $user->createSetupIntent(['customer' => $user->stripe_id]),
         ]);
 
     }
@@ -147,12 +147,12 @@ class IndexController extends Controller
 //        if(!$request->user()->hasPaymentMethod()){
 //            return redirect('/client/ajoute_payment');
 //        }
-        if($abonnement == 'free'){
-            return back();
-        }
-        if($request->user()->subscribed($abonnement)){
-            return back();
-        }
+//        if($abonnement == 'free'){
+//            return back();
+//        }
+//        if($request->user()->subscribed($abonnement)){
+//            return back();
+//        }
         return view('payment.payment_abonner',[
             'abonnement' => $abonnement,
         ]);
@@ -181,13 +181,44 @@ class IndexController extends Controller
 
     public function alipay(Request $request)
     {
-        return view('payment.alipay',['amount'=>1500,
-            'currency'=>config('cashier.currency'),
-            'redirect_url'=>url('/client/payer/alipay_ready')]);
+        $user = $request->user();
+        $payment_intent = PaymentIntent::create([
+            'payment_method_types' => ['alipay'],
+            'amount' => 1099,
+            'currency' => 'eur',
+            'customer'=>$user->stripe_id,
+            'description'=>'use alipay pay',
+            'receipt_email'=>$user->email
+        ],$user->stripeOptions());
+        return view('payment.alipay',['payment_intent'=>$payment_intent,'user'=>$user]);
+//        return view('payment.alipay',['amount'=>1500,
+//            'currency'=>config('cashier.currency'),
+//            'redirect_url'=>url('/client/payer/alipay_ready?amount=1500')]);
+    }
+
+    //建议使用webhook,不要将支付成功的处理逻辑放在此处,但是可以给用户显示一些提示信息。
+    //因为一旦网络不好服务器可能接收不到支付,而用户已经扣款。但是webhook会检测服务器是否回应,所以更有保障
+    //(当confirm_type为automatic时会自动扣款并重定向到此来处理支付成功逻辑,
+    //但如果为nanual则此次paymentIntent的status会是requires_confirmation)
+    public function alipay_ready(Request $request)
+    {
+        $user = $request->user();
+        $payment_intent_id = $request['payment_intent'];
+        $payment_intent = PaymentIntent::retrieve($payment_intent_id,$user->stripeOptions());
+        if($payment_intent->status=='requires_action' || $payment_intent->status == 'requires_payment_method'){
+            return Response::json(['msg'=>'fail to pay'],400);
+        }
+        //不需要再次confirm
+        //$payment_intent->confirm();
+        return Response::json(['msg'=>'ok'],200);
+
+//        $user = $request->user();
+//        $charge = $user->chargeWithSource($request['amount'], $request['source']);
+//        return Response::json(['msg'=>'ok'],200);
     }
 
     //此处应为webhook
-    public function alipay_ready(Request $request)
+    public function webhook_alipay_ready(Request $request)
     {
 //        $user = $request->user();
 //        $user->chargeWithSource($request['amount'], $request['source']);
@@ -199,4 +230,18 @@ class IndexController extends Controller
         $user->chargeWithSource($amount, $source_id);
     }
 
+    public function wechatpay(Request $request)
+    {
+        return view('payment.wechatpay',['amount'=>1500,
+            'currency'=>config('cashier.currency'),
+            'redirect_url'=>url('/client/payer/wechatpay_ready?amount=1500')]);
+
+    }
+
+    //wechat只能用source和charge接口支付
+    //wechat的source只能通过webhook接收
+    public function webhook_wechatpay_ready()
+    {
+
+    }
 }

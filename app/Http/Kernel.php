@@ -43,6 +43,7 @@ class Kernel extends HttpKernel
             //'bindings',
             \App\Http\Middleware\EncryptCookies::class,
             \Illuminate\Session\Middleware\StartSession::class,
+            'api.auth',
         ],
     ];
 
@@ -55,6 +56,8 @@ class Kernel extends HttpKernel
      */
     protected $routeMiddleware = [
         'auth' => \App\Http\Middleware\Authenticate::class,
+        'api.auth'=> \App\Http\Middleware\ApiAuthenticate::class,
+        'api.subscribed'=> \App\Http\Middleware\ApiAbonner::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,

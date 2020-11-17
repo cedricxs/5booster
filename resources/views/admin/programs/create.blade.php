@@ -1,11 +1,12 @@
 @extends('admin.index')
 @section('container')
 
-    <script type="text/javascript"> addTitle('program')</script>
+    <script type="text/javascript"> addTitle('program plan','{{url('admin/programs')}}');addTitle('program '+"{{$niveau->program_niveau_name.' '.$object->program_object_name}}",'{{url('admin/programscell').'?niveau='.$niveau->id_program_niveau."&object=".$object->id_program_object}}');addTitle('add program '+"{{$niveau->program_niveau_name.' '.$object->program_object_name}}",
+            '{{url('admin/programs/create').'?niveau='.$niveau->id_program_niveau.'&object='.$object->id_program_object}}')</script>
     <!--结果集标题与导航组件 开始-->
     <div class="result_wrap">
         <div class="result_title">
-            <h3>add program</h3>
+            <h3>add program {{$niveau->program_niveau_name.' '.$object->program_object_name}}</h3>
             @if(session('msg'))
                 <div class="mark">
                     {{session('msg')}}
@@ -14,8 +15,8 @@
         </div>
         <div class="result_content">
             <div class="short_wrap">
-                <a href="{{url('admin/programs/create')}}"><i class="fa fa-plus"></i>add program</a>
-                <a href="{{url('admin/programs')}}"><i class="fa fa-recycle"></i>all programs</a>
+                <a href="{{url('admin/programs/create').'?niveau='.$niveau->id_program_niveau.'&object='.$object->id_program_object}}"><i class="fa fa-plus"></i>add program</a>
+                <a href="{{url('admin/programscell').'?niveau='.$niveau->id_program_niveau.'&object='.$object->id_program_object}}"><i class="fa fa-recycle"></i>all programs</a>
             </div>
         </div>
     </div>
@@ -27,55 +28,44 @@
             <table class="add_tab">
                 <tbody>
                 <tr>
-                    <th>week number：</th>
+                    <th>program name：</th>
                     <td>
-                        <input required type="text" class="lg" name="week_number">
+                        <input type="text" class="lg" name="name">
                     </td>
                 </tr>
                 <tr>
-                    <th>program category：</th>
+                    <th>program video url：</th>
                     <td>
-                        <select class="lg" name="category">
-                            @foreach($categories as $category)
-                                <option value="{{$category->id_sport_category}}">{{$category->sport_category_name}}</option>
+                        <input type="text" class="lg" name="video_url">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Niveau：</th>
+                    <td>
+                        <select class="lg" name="niveau">
+                            @foreach($all_niveau as $n)
+                                <option value="{{$n->id_program_niveau}}" @if($n->id_program_niveau == $niveau->id_program_niveau)
+                                                                              selected
+                                                                            @endif
+                                >{{$n->program_niveau_name}}</option>
                             @endforeach
                         </select>
                     </td>
                 </tr>
                 <tr>
-                    <th>program pdf：</th>
+                    <th>Object：</th>
                     <td>
-                        <input type="file" class="lg" name="pdf">
-                    </td>
-                </tr>
-                <tr>
-                    <th>is Free：</th>
-                    <td>
-                        <input type="checkbox" id="free" name="free"
-                               >
+                        <select class="lg" name="object">
+                            @foreach($all_object as $o)
+                                <option value="{{$o->id_program_object}}" @if($o->id_program_object == $object->id_program_object)
+                                selected
+                                    @endif
+                                >{{$o->program_object_name}}</option>
+                            @endforeach
+                        </select>
                     </td>
                 </tr>
 
-{{--                <tr>
-                    <th>upload file: </th>
-                    <td>
-                        <input type="file" id="upload" name="workout" multiple="multiple"/>
-                    </td>
-                </tr>--}}
-                <tr>
-                    <th>Nombre d'exercice: </th>
-                    <td>
-                        <input id="nb_exercise" name="nb_exercise" type="text" class="lg" value="0"/>
-                    </td>
-                </tr>
-{{--                <tr>
-                    <th>upload image: </th>
-                    <td>
-                        <div id="dropbox"  draggable="true" style="width: 20%;height: 200px;">
-Drop Files to here
-                        </div>
-                    </td>
-                </tr>--}}
                 <tr id="button_tr">
                     <th></th>
                     <td>
@@ -87,36 +77,7 @@ Drop Files to here
             </table>
         </form>
     </div>
-    <script>
-        $('#nb_exercise').change(function () {
-            let count = $('.row').length
-            if($('#nb_exercise').val()>count){
-                addExInput($('#nb_exercise').val()-count,count)
-            }else if($('#nb_exercise').val()<count){
-                let ans = confirm('sure?');
-                if(ans == true){
-                    for(let i=Number($('#nb_exercise').val());i<count;i++){
-                        $('#exercise'+(i+1)).remove()
-                    }
-                }else{
-                    $('#nb_exercise').val(count)
-                }
-            }
-        })
 
-        function addExInput(nb_exercise,count) {
-            for(let i = 0;i<nb_exercise;i++){
-                let tr = $('<tr id="exercise'+(i+1+count)+'"></tr>');
-                let th = $('<th>Exercise '+(i+1+count)+'</th>').appendTo(tr);
-                let td = $('<td class="row"><input required style="width: 20%;position:relative;left: 1.5%" type="text" class="lg" name="exercise_name_'+(i+1+count)+'" placeholder="exercise name"><input required style="width: 42%;position:relative;left: 2%" type="text" class="lg" name="exercise_video_url_'+(i+1+count)+'" placeholder="exercise video url"></td>').appendTo(tr);
-
-                tr.insertBefore($('#button_tr'));
-            }
-        }
-
-
-
-    </script>
 @endsection
 
 

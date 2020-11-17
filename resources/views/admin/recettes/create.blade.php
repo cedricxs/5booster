@@ -1,7 +1,8 @@
 @extends('admin.index')
 @section('container')
 
-    <script type="text/javascript"> addTitle('recette')</script>
+    <script type="text/javascript"> addTitle('recette','{{url('admin/recettes')}}');
+        addTitle('add recette','{{url('admin/recettes/create')}}')</script>
     <!--结果集标题与导航组件 开始-->
     <div class="result_wrap">
         <div class="result_title">
@@ -22,47 +23,36 @@
     <!--结果集标题与导航组件 结束-->
 
     <div class="result_wrap">
-        <form action="{{url('admin/recettes')}}" method="post" enctype="multipart/form-data">
+        <form action="{{url('admin/recettes')}}" method="post" enctype="multipart/form-data" onsubmit="return checkForm()">
             {{csrf_field()}}
             <table class="add_tab">
                 <tbody>
                 <tr>
-                    <th>recette title：</th>
+                    <th>recette name：</th>
                     <td>
-                        <input required type="text" class="lg" name="title">
+                        <input required type="text" class="lg" name="name">
                     </td>
                 </tr>
                 <tr>
-                    <th>recette repas：</th>
+                    <th>recette image：</th>
                     <td>
-                        <input required type="text" class="lg" name="repas">
+                        <input  accept="image/*" onchange="changepic(this)" type="file" id="upload" class="inputfile" name="recette_img">
+                        <img id="show" style="height: 150px;width: 250px"/>
                     </td>
                 </tr>
                 <tr>
-                    <th>recette diet：</th>
+                    <th>description：</th>
                     <td>
-                        <input required type="text" class="lg" name="diet">
+                        <textarea style="height: 30%;width: 63%" name="description"></textarea>
                     </td>
                 </tr>
-{{--                <tr>--}}
-{{--                    <th>keywords：</th>--}}
-{{--                    <td>--}}
-{{--                        <textarea name="keywords"></textarea>--}}
-{{--                    </td>--}}
-{{--                </tr>--}}
-{{--                <tr>--}}
-{{--                    <th>description：</th>--}}
-{{--                    <td>--}}
-{{--                        <textarea name="description"></textarea>--}}
-{{--                    </td>--}}
-{{--                </tr>--}}
+                <tr id="tr_ingredient">
+                    <th>ingredients：</th>
+                    <td id="td_ingredient">
+                        <input class="submit_workouts" type="button" value="add ingredient" onclick="addIngredient()"></input>
+                    </td>
+                </tr>
 
-                <tr>
-                    <th>upload file: </th>
-                    <td>
-                        <input type="file" id="upload" name="recette" />
-                    </td>
-                </tr>
                 <tr>
                     <th></th>
                     <td>
@@ -73,6 +63,46 @@
                 </tbody>
             </table>
         </form>
+        <script>
+            function addIngredient() {
+                let div = document.createElement('div');
+                div.setAttribute('class','div_ingredient');
+                div.setAttribute('id','div_ingredient'+count);
+                let span = document.createElement('span');
+                span.innerHTML  = 'ingredient '+(count+1)+' name:&nbsp;&nbsp;&nbsp;&nbsp;';
+                let select = document.createElement('select');
+                select.setAttribute('class','lg');
+                select.setAttribute('name','ingredient[ingredient'+count+'][id_ingredient]');
+                @foreach($ingredients as $ingredient)
+                    option = document.createElement('option');
+                    option.text = '{{$ingredient->ingredient_name}}';
+                    option.setAttribute('value','{{$ingredient->id_ingredient}}');
+                    select.appendChild(option);
+                @endforeach
+                let span2 = document.createElement('span');
+                span2.innerHTML  = '&nbsp;ingredient '+(count+1)+' quantite:&nbsp;&nbsp;&nbsp;&nbsp;';
+                let input = document.createElement('input');
+                input.setAttribute('type','text');
+                input.setAttribute('class','ingredient_quantite');
+                input.setAttribute('name','ingredient[ingredient'+count+'][quantite]');
+                input.setAttribute('style','width:20%');
+                input.setAttribute('onchange','check(this)');
+                let button = document.createElement('input');
+                button.setAttribute('type','button');
+                button.setAttribute('id',''+count);
+                button.setAttribute('class','submit_workouts');
+                button.setAttribute('value','remove ingredient');
+                button.setAttribute('onclick','removeIngredient(parseInt(this.id))');
+                button.setAttribute('style','position:relative;left:4px');
+                div.appendChild(span);
+                div.appendChild(select);
+                div.appendChild(span2);
+                div.appendChild(input);
+                div.appendChild(button);
+                document.getElementById('td_ingredient').appendChild(div)
+                count++;
+            }
+        </script>
     </div>
 @endsection
 

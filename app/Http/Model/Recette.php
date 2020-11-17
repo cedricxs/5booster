@@ -12,11 +12,11 @@ class Recette extends Model
      * @var array
      */
     protected $fillable = [
-        'id', 'title', 'url_preview',
-        'url_recette','repas','diet',
+        'id_recette', 'recette_name', 'url_preview',
+       'view','description',
     ];
 
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'id_recette';
     //public $timestamps = false;
     protected $table = 'recettes';
 
